@@ -1,632 +1,595 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
+<!-- ============================================================
+  ミキズコラーゲンLP / head 編集欄用
+  ※ DOCTYPE・html・head・body タグは含めていません
+============================================================ -->
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>ミキズコラーゲン｜高分子コラーゲン5,000mg｜エポラーシェ公式</title>
 <meta name="description" content="美容研究家・岡江美希が7年かけてたどり着いた、低分子化しない高分子コラーゲン5,000mg。1日6g・22.4kcal、約198円のコラーゲン習慣。3日分トライアル1,296円・送料無料。">
 
-<!-- ▼ OGP（SNS共有時の表示。画像URLは公開後の絶対URLに差し替え可） -->
+<link rel="canonical" href="PUBLIC_URL">
+
+<!-- OGP -->
 <meta property="og:type" content="product">
+<meta property="og:site_name" content="エポラーシェ">
 <meta property="og:title" content="ミキズコラーゲン｜高分子コラーゲン5,000mg｜エポラーシェ公式">
 <meta property="og:description" content="低分子化しない高分子コラーゲンを1日分5,000mg。まずは3日分トライアル1,296円・送料無料から。">
-<meta property="og:image" content="https://triplesun333.github.io/mikizu-lp/images/hero.jpg">
-<meta property="og:url" content="https://triplesun333.github.io/mikizu-lp/">
-<meta property="og:site_name" content="エポラーシェ">
-<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="{{ file_root_path }}/lp/mylp01/ogp.jpg">
+<meta property="og:url" content="PUBLIC_URL">
 
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ミキズコラーゲン｜高分子コラーゲン5,000mg｜エポラーシェ公式">
+<meta name="twitter:description" content="低分子化しない高分子コラーゲンを1日分5,000mg。まずは3日分トライアル1,296円・送料無料から。">
+<meta name="twitter:image" content="{{ file_root_path }}/lp/mylp01/ogp.jpg">
+
+<!-- Web フォント -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --ink:#2f251d;
-  --ink-soft:#665446;
-  --paper:#fffdf9;
-  --ivory:#f6f1e8;
-  --sand:#ece2d2;
-  --gold:#b8955e;
-  --gold-deep:#8f6f3d;
-  --rose:#d8c2b5;
-  --line:rgba(143,111,61,.22);
-  --shadow:0 22px 60px rgba(58,41,23,.10);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Zen Kaku Gothic New',sans-serif;background:var(--paper);color:var(--ink);line-height:1.9;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img{display:block;max-width:100%;height:auto}
-a{color:inherit}
-a:focus-visible,summary:focus-visible,.btn:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
-.container{width:min(1120px,calc(100% - 40px));margin-inline:auto}
-.container-narrow{width:min(860px,calc(100% - 40px));margin-inline:auto}
-section{padding:104px 0}
-.serif{font-family:'Shippori Mincho',serif}
-.eyebrow{font-size:11px;letter-spacing:.36em;color:var(--gold-deep);font-weight:700;margin-bottom:16px}
-.section-head{display:flex;justify-content:space-between;gap:40px;align-items:flex-end;margin-bottom:46px}
-.section-head h2{font-family:'Shippori Mincho',serif;font-size:clamp(30px,4vw,48px);font-weight:600;line-height:1.55;letter-spacing:.06em}
-.section-head p{max-width:34em;color:var(--ink-soft);font-size:15px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:58px;padding:0 34px;text-decoration:none;font-family:'Shippori Mincho',serif;font-weight:600;letter-spacing:.08em;transition:.25s ease;border:1px solid transparent}
-.btn-primary{background:var(--ink);color:#fff;box-shadow:0 14px 30px rgba(47,37,29,.16)}
-.btn-primary:hover{transform:translateY(-2px);background:#1f1813}
-.btn-secondary{border-color:var(--gold);color:var(--ink);background:rgba(255,255,255,.7)}
-.btn-secondary:hover{background:var(--ivory)}
-.note{font-size:12px;color:#8b796b}
-.microcopy{font-size:12.5px;color:#8b796b;margin-top:12px;text-align:center}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
 
-/* ===== CAMPAIGN（差し込み枠用スタイル：通常時は未使用） ===== */
-.campaign-bar{background:var(--ink);color:#f3e5cd;text-align:center;padding:14px 20px}
-.campaign-bar p{font-size:14px;letter-spacing:.04em}
-.campaign-bar strong{color:#fff;font-size:17px;font-family:'Shippori Mincho',serif}
+<!-- LP用スタイル -->
+<link rel="stylesheet" href="{{ file_root_path }}/lp/mylp01/style.css">
+<!-- ============================================================
+  ミキズコラーゲンLP / ボディー編集欄用
+  ------------------------------------------------------------
+  【構造について】
+  ページ本体を <div class="ep-guide-page"> で囲んでいます。
+  ただし購入フォーム部分は、CSSリセットの影響を受けないよう
+  意図的にラッパーの外に出しています。
+  （ラッパー内に置くとフォームのデザインが崩れます）
 
-/* HERO */
-.hero{position:relative;min-height:92vh;display:grid;align-items:center;overflow:hidden;background:#2b2119;color:#fff}
-.hero-media{position:absolute;inset:0}
-.hero-media img{width:100%;height:100%;object-fit:cover}
-.hero-media:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(26,19,14,.86) 0%,rgba(26,19,14,.62) 42%,rgba(26,19,14,.20) 72%,rgba(26,19,14,.08) 100%)}
-.hero-inner{position:relative;z-index:2;padding:128px 0 92px}
-.hero-brand{font-size:12px;letter-spacing:.38em;color:#ecdcc2;margin-bottom:26px}
-.hero h1{font-family:'Shippori Mincho',serif;font-size:clamp(32px,5.4vw,72px);line-height:1.55;letter-spacing:.05em;font-weight:600}
-.hero h1 .l{display:inline-block}
-.hero h1 em{font-style:normal;color:#f1ddbd}
-.hero-lead{max-width:37em;margin:28px 0 30px;color:#f1e7dc;font-size:clamp(15px,1.4vw,18px)}
-.hero-badges{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px}
-.hero-badge{border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.08);backdrop-filter:blur(8px);padding:10px 14px;font-size:13px}
-.hero-actions{display:flex;flex-wrap:wrap;gap:20px;align-items:center}
-.hero-textlink{color:#ecdcc2;font-size:14px;text-underline-offset:5px}
-.hero-proof{margin-top:22px;color:#eadcc9;font-size:13px}
+    <div class="ep-guide-page"> … 前半 … </div>
+    ← ここに購入フォーム（スコープ外）
+    <div class="ep-guide-page"> … 後半 … </div>
 
-/* QUICK VALUE */
-.quick{margin-top:-44px;position:relative;z-index:4}
-.quick-grid{display:grid;grid-template-columns:repeat(4,1fr);background:var(--paper);box-shadow:var(--shadow);border:1px solid var(--line)}
-.quick-item{padding:26px 24px;border-right:1px solid var(--line)}
-.quick-item:last-child{border-right:none}
-.quick-item strong{display:block;font-family:'Shippori Mincho',serif;font-size:22px;margin-bottom:3px}
-.quick-item span{font-size:12.5px;color:var(--ink-soft)}
-
-/* EMPATHY */
-.empathy{background:linear-gradient(180deg,var(--paper),var(--ivory))}
-.empathy-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:center}
-.empathy-image{position:relative}
-.empathy-image img{width:100%;height:600px;object-fit:cover}
-.empathy-image:after{content:"";position:absolute;right:-18px;bottom:-18px;width:68%;height:60%;border-right:1px solid var(--gold);border-bottom:1px solid var(--gold);pointer-events:none}
-.checklist{display:grid;gap:12px;margin:28px 0 34px}
-.check{display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)}
-.check:before{content:"✓";color:var(--gold-deep);font-weight:700}
-.empathy-copy h2{font-family:'Shippori Mincho',serif;font-size:clamp(30px,4vw,46px);line-height:1.6;font-weight:600}
-.empathy-close{font-family:'Shippori Mincho',serif;font-size:20px;line-height:2;color:var(--ink)}
-
-/* MANGA（4コマ） */
-.manga{background:var(--paper)}
-.manga-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.manga-grid figure{margin:0}
-.manga-grid img{width:100%;aspect-ratio:1/1;object-fit:cover;background:var(--ivory);border:1px solid var(--line)}
-.manga-grid figcaption{font-size:13px;color:var(--ink-soft);line-height:1.85;margin-top:12px}
-
-/* REASONS */
-.reasons{background:var(--ivory)}
-.reason-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.reason-card{background:var(--paper);padding:34px 30px;border-top:2px solid var(--gold)}
-.reason-num{font-family:'Shippori Mincho',serif;color:var(--gold-deep);font-size:13px;letter-spacing:.18em;margin-bottom:20px}
-.reason-card h3{font-family:'Shippori Mincho',serif;font-size:21px;line-height:1.6;margin-bottom:12px}
-.reason-card p{font-size:14px;color:var(--ink-soft)}
-.reason-value{font-family:'Shippori Mincho',serif;font-size:42px;line-height:1.2;margin:10px 0 12px}
-.reason-value small{font-size:16px}
-
-/* COMPARE */
-.compare-section{background:#30251d;color:#fff}
-.compare-section .eyebrow{color:#dfc49b}
-.compare-section .section-head p{color:#e2d6ca}
-.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.compare-card{padding:42px 38px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.035)}
-.compare-card.featured{background:linear-gradient(180deg,rgba(184,149,94,.19),rgba(255,255,255,.04));border-color:#b8955e}
-.compare-label{font-size:11px;letter-spacing:.2em;color:#d8c9b9;margin-bottom:12px}
-.compare-card h3{font-family:'Shippori Mincho',serif;font-size:26px;margin-bottom:18px}
-.compare-card p{color:#e5dbd1;font-size:14.5px}
-.compare-flow{display:flex;align-items:center;gap:7px;margin:24px 0 28px;min-height:42px}
-.dot{width:12px;height:12px;border-radius:50%;background:#bcae9f}
-.link{width:18px;height:2px;background:#caa870}
-.compare-card.featured .dot{width:15px;height:15px;background:#ead8b9}
-.compare-note{margin-top:28px;padding:22px 24px;border-left:2px solid var(--gold);background:rgba(255,255,255,.04);color:#f3e9dd;font-family:'Shippori Mincho',serif;font-size:18px}
-
-.proof{margin:36px auto 0;max-width:720px}
-.proof img{width:100%;height:auto}
-.proof figcaption{margin-top:14px;font-size:13.5px;color:#e2d6ca;text-align:center;line-height:1.9}
-
-/* STORY */
-.story{background:var(--ivory)}
-.story-grid{display:grid;grid-template-columns:380px 1fr;gap:72px;align-items:start}
-.story-photo{position:sticky;top:40px}
-.story-photo img{width:100%;height:520px;object-fit:cover}
-.story-photo figcaption{text-align:center;font-size:12px;letter-spacing:.16em;color:var(--gold-deep);margin-top:12px}
-.timeline{display:grid;gap:24px;margin-top:28px}
-.timeline-item{display:grid;grid-template-columns:88px 1fr;gap:20px;padding-bottom:24px;border-bottom:1px solid var(--line)}
-.timeline-year{font-family:'Shippori Mincho',serif;color:var(--gold-deep);font-size:24px}
-.timeline-item h3{font-family:'Shippori Mincho',serif;font-size:20px;margin-bottom:6px}
-.timeline-item p{color:var(--ink-soft);font-size:14.5px}
-.story-quote{margin-top:34px;padding:26px 30px;background:var(--paper);border-left:2px solid var(--gold);font-family:'Shippori Mincho',serif;font-size:22px;line-height:1.9}
-
-/* HOWTO */
-.howto{background:var(--paper)}
-.howto-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.how-card{background:var(--ivory);overflow:hidden}
-.how-card img{width:100%;height:250px;object-fit:cover}
-.how-body{padding:24px 24px 28px}
-.how-kicker{font-size:11px;letter-spacing:.2em;color:var(--gold-deep);margin-bottom:8px}
-.how-card h3{font-family:'Shippori Mincho',serif;font-size:20px;margin-bottom:8px}
-.how-card p{font-size:14px;color:var(--ink-soft)}
-
-/* VOICES */
-.voices{background:linear-gradient(180deg,var(--ivory),var(--paper))}
-.voice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.voice{background:var(--paper);border:1px solid var(--line);padding:30px 26px;box-shadow:0 10px 30px rgba(58,41,23,.05)}
-.voice-stars{color:var(--gold-deep);letter-spacing:.12em;font-size:13px;margin-bottom:12px}
-.voice h3{font-family:'Shippori Mincho',serif;font-size:18px;margin-bottom:12px}
-.voice p{font-size:14px;color:var(--ink-soft)}
-.voice small{display:block;margin-top:18px;color:#8d7d71;font-size:12px;line-height:1.8}
-.trust-strip{display:grid;grid-template-columns:repeat(3,1fr);margin-top:42px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.trust-strip div{text-align:center;padding:24px;border-right:1px solid var(--line)}
-.trust-strip div:last-child{border-right:none}
-.trust-strip strong{font-family:'Shippori Mincho',serif;font-size:18px;display:block}
-.trust-strip span{font-size:12px;color:var(--ink-soft)}
-.mid-cta{text-align:center;margin-top:46px}
-
-/* COST */
-.cost{background:#30251d;color:#fff;text-align:center}
-.cost .eyebrow{color:#dfc49b}
-.cost h2{font-family:'Shippori Mincho',serif;font-size:clamp(28px,3.6vw,44px);line-height:1.6;margin-bottom:10px}
-.cost-value{font-family:'Shippori Mincho',serif;font-size:clamp(52px,8vw,86px);line-height:1.2;color:#ecd8b4;margin:14px 0 10px}
-.cost-value small{font-size:22px}
-.cost p{color:#e2d6ca;max-width:36em;margin:0 auto;font-size:15px}
-
-/* FIT */
-.fit{background:var(--paper)}
-.fit-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.fit-card{padding:32px;background:var(--ivory);border-top:2px solid var(--rose)}
-.fit-card.good{border-color:var(--gold-deep)}
-.fit-card h3{font-family:'Shippori Mincho',serif;font-size:20px;margin-bottom:18px}
-.fit-card ul{list-style:none}
-.fit-card li{padding:11px 0;border-bottom:1px solid var(--line);font-size:14px;color:var(--ink-soft)}
-.fit-card li:before{content:"—";margin-right:10px;color:var(--gold-deep)}
-
-/* SPEC（栄養成分・全成分） */
-.spec{background:var(--ivory)}
-.spec table{width:100%;border-collapse:collapse;background:var(--paper);font-size:14.5px}
-.spec th,.spec td{border:1px solid var(--line);padding:13px 18px;text-align:left}
-.spec th{width:44%;font-weight:500;background:var(--sand)}
-.spec-detail{margin-top:24px;display:grid;gap:18px}
-.spec-detail dt{font-family:'Shippori Mincho',serif;font-size:15px;color:var(--gold-deep);letter-spacing:.1em;margin-bottom:4px}
-.spec-detail dd{font-size:13.5px;color:var(--ink-soft);line-height:2}
-.spec-caution{margin-top:22px;padding:22px 24px;background:var(--paper);border-left:2px solid var(--rose);font-size:13.5px;color:var(--ink-soft);line-height:2}
-
-/* OFFER */
-.offer{background:#2f251d;color:#fff}
-.offer .eyebrow{color:#dfc49b}
-.offer h2{font-family:'Shippori Mincho',serif;font-size:clamp(32px,4vw,48px);line-height:1.55;text-align:center}
-.offer-lead{text-align:center;color:#e2d6ca;margin:16px auto 44px;max-width:42em}
-.offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
-.offer-card{background:#fff;color:var(--ink);padding:36px 32px;position:relative;display:flex;flex-direction:column}
-.offer-card.trial{border:2px solid var(--gold)}
-.ribbon{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--gold-deep);color:#fff;padding:5px 18px;font-size:11px;letter-spacing:.14em;white-space:nowrap}
-.offer-img{width:100%;height:190px;object-fit:contain;background:var(--ivory);margin-bottom:20px}
-.offer-plan{font-family:'Shippori Mincho',serif;font-size:18px;text-align:center;margin-bottom:12px}
-.offer-price{text-align:center;font-family:'Shippori Mincho',serif;font-size:46px;line-height:1.2}
-.offer-price small{font-size:15px}
-.offer-sub{text-align:center;font-size:13px;color:var(--ink-soft);margin:8px 0 24px}
-.offer-list{display:grid;gap:8px;margin-bottom:26px;font-size:14px;color:var(--ink-soft)}
-.offer-list span:before{content:"✓";color:var(--gold-deep);margin-right:8px}
-.offer-card .btn{width:100%;margin-top:auto}
-.offer-card .micro{font-size:12px;color:#8b796b;text-align:center;margin-top:12px;line-height:1.8}
-.teiki{margin-top:26px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);padding:28px 30px}
-.teiki h3{font-family:'Shippori Mincho',serif;font-size:17px;letter-spacing:.16em;color:#e6cfa6;margin-bottom:10px}
-.teiki p{font-size:14px;color:#e2d6ca;line-height:2}
-.teiki strong{color:#f3e5cd}
-.teiki a{display:inline-block;margin-top:14px;font-size:13.5px;color:#e6cfa6;text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:2px}
-.teiki a:hover{color:#fff}
-.offer-tel{text-align:center;margin-top:32px;color:#d7c9bb;font-size:14px}
-.offer-tel a{font-family:'Shippori Mincho',serif;font-size:30px;color:#fff;text-decoration:none;display:inline-block;margin:6px 0 2px;letter-spacing:.04em}
-.offer-tel a:hover{color:#ecd8b4}
-
-/* FAQ */
-.faq{background:var(--paper)}
-.faq details{border-bottom:1px solid var(--line)}
-.faq details:first-of-type{border-top:1px solid var(--line)}
-.faq summary{list-style:none;cursor:pointer;padding:22px 44px 22px 38px;position:relative;font-family:'Shippori Mincho',serif;font-size:17px}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary:before{content:"Q";position:absolute;left:0;color:var(--gold-deep);font-weight:700}
-.faq summary:after{content:"＋";position:absolute;right:4px;color:var(--gold-deep)}
-.faq details[open] summary:after{content:"−"}
-.faq-answer{padding:0 42px 22px 38px;color:var(--ink-soft);font-size:14px;position:relative}
-.faq-answer:before{content:"A";position:absolute;left:0;color:var(--gold)}
-
-/* FINAL */
-.final{position:relative;background:#2b2119;color:#fff;text-align:center;overflow:hidden}
-.final>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.45}
-.final .container-narrow{position:relative;z-index:2}
-.final-msg{font-family:'Shippori Mincho',serif;font-size:clamp(26px,3.8vw,42px);line-height:2;letter-spacing:.1em;margin-bottom:40px;text-shadow:0 2px 18px rgba(26,19,14,.7)}
-
-/* SHOP / FOOTER */
-.shop{background:var(--ivory);text-align:center}
-.shop p{max-width:44em;margin:0 auto 28px;color:var(--ink-soft)}
-footer{padding:38px 20px;text-align:center;font-size:12px;color:#8c7c70;border-top:1px solid var(--line);background:var(--paper);line-height:2.2}
-footer a{color:inherit}
-
-/* STICKY */
-.sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;transform:translateY(120%);transition:.3s;background:rgba(47,37,29,.96);padding:10px 14px calc(10px + env(safe-area-inset-bottom));display:none}
-.sticky.show{transform:none}
-.sticky a{display:block;text-align:center;text-decoration:none;background:#ead8b9;color:var(--ink);padding:14px;font-family:'Shippori Mincho',serif;font-weight:700}
-
-.reveal{opacity:0;transform:translateY(18px);transition:.7s ease}
-.reveal.on{opacity:1;transform:none}
-
-@media(max-width:900px){
-  section{padding:78px 0}
-  .section-head{display:block}
-  .section-head p{margin-top:16px}
-  .quick-grid{grid-template-columns:1fr 1fr}
-  .quick-item:nth-child(2){border-right:none}
-  .quick-item:nth-child(-n+2){border-bottom:1px solid var(--line)}
-  .empathy-grid,.story-grid{grid-template-columns:1fr}
-  .empathy-image{order:2}
-  .empathy-image img{height:420px}
-  .story-photo{position:static;max-width:420px}
-  .manga-grid{grid-template-columns:1fr 1fr}
-  .reason-grid,.howto-grid,.voice-grid{grid-template-columns:1fr}
-  .compare-grid,.offer-grid,.fit-grid{grid-template-columns:1fr}
-  .trust-strip{grid-template-columns:1fr}
-  .trust-strip div{border-right:none;border-bottom:1px solid var(--line)}
-  .trust-strip div:last-child{border-bottom:none}
-  .sticky{display:block}
-}
-@media(max-width:640px){
-  .container,.container-narrow{width:min(100% - 28px,1120px)}
-  .hero{min-height:88vh}
-  .hero-inner{padding:106px 0 78px}
-  .hero h1{font-size:clamp(26px,7.6vw,36px);line-height:1.6}
-  .hero-media:after{background:linear-gradient(90deg,rgba(26,19,14,.86),rgba(26,19,14,.46))}
-  .hero-actions{display:grid;gap:16px;justify-items:start}
-  .hero-actions .btn{width:100%}
-  .quick{margin-top:-20px}
-  .quick-item{padding:20px 16px}
-  .quick-item strong{font-size:19px}
-  .timeline-item{grid-template-columns:68px 1fr}
-  .offer-card{padding:34px 22px}
-  .spec th,.spec td{padding:11px 12px}
-}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.sticky{transition:none}}
-</style>
-</head>
-<body>
+  ★ ep-guide-page の div は削除しないでください。
+============================================================ -->
 
 <!-- ============================================================
   ▼▼▼ キャンペーン差し込み枠（ここから）▼▼▼
-  【重要】この枠は削除しないこと。常設LPとして1年使い、
-  キャンペーン期間中だけ下記コメントを外して内容を書き換える運用。
+  常設LPとして1年使い、キャンペーン期間中のみ
+  下記コメントを外して内容を書き換える運用です。削除しないでください。
 
-<div class="campaign-bar">
-  <div class="container">
-    <p>7月限定キャンペーン｜<strong>15%OFF　5,940円 → 5,049円（税込）</strong>／2袋以上でシェーカーボトルプレゼント（2026年7月1日〜7月31日）</p>
+<div class="ep-guide-page">
+  <div class="ep-campaign">
+    <div class="ep-container">
+      <p>7月限定キャンペーン｜<strong>15%OFF　5,940円 → 5,049円（税込）</strong>／2袋以上でシェーカーボトルプレゼント（2026年7月1日〜7月31日）</p>
+    </div>
   </div>
 </div>
 
   ▲▲▲ キャンペーン差し込み枠（ここまで）▲▲▲
 ============================================================ -->
 
-<header class="hero">
-  <div class="hero-media"><img src="images/hero.jpg" alt="窓辺の自然光の中で、穏やかに微笑む大人の女性" width="1376" height="768" fetchpriority="high"></div>
-  <div class="container hero-inner">
-    <p class="hero-brand">EPORASHE ｜ エポラーシェ</p>
-    <h1><span class="l">何を飲んでも</span><br><span class="l">わからなかった人へ。</span><br><span class="l"><em>高分子という選択。</em></span></h1>
-    <p class="hero-lead">美容研究家・岡江美希が7年間コラーゲンを試し続け、たどり着いた答え。低分子化しない高分子コラーゲンを、1日分5,000mg。</p>
-    <div class="hero-badges">
-      <span class="hero-badge">高分子コラーゲン 5,000mg</span>
-      <span class="hero-badge">1日 22.4kcal</span>
-      <span class="hero-badge">約30日分</span>
-      <span class="hero-badge">国内製造</span>
-    </div>
-    <!-- CTAは主役1つ。もう一方はテキストリンクに落として決断を鈍らせない -->
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="#trial">まずは3日分を試す（1,296円・送料無料）</a>
-      <a class="hero-textlink" href="#order">通常商品（180g）はこちら →</a>
-    </div>
-    <p class="hero-proof">★★★★★ 4.7／公式レビュー122件（2026年7月時点）</p>
-  </div>
-</header>
+<div class="ep-guide-page">
 
-<div class="quick">
-  <div class="container quick-grid">
-    <div class="quick-item"><strong>5,000mg</strong><span>1日分の高分子コラーゲン</span></div>
-    <div class="quick-item"><strong>22.4kcal</strong><span>毎日続けやすいカロリー</span></div>
-    <div class="quick-item"><strong>約198円</strong><span>1日あたりの価格</span></div>
-    <div class="quick-item"><strong>1,296円</strong><span>3日分トライアル・送料無料</span></div>
-  </div>
-</div>
-
-<section class="empathy">
-  <div class="container empathy-grid">
-    <div class="empathy-copy reveal">
-      <p class="eyebrow">FOR YOU</p>
-      <h2>そのコラーゲン、<br>手応えはありましたか。</h2>
-      <div class="checklist">
-        <div class="check">何を飲んでも、正直よくわからなかった</div>
-        <div class="check">コラーゲン特有の匂いが苦手で続かなかった</div>
-        <div class="check">カロリーが気になり、毎日は難しかった</div>
-        <div class="check">「結局、意味があるの？」と思っている</div>
-      </div>
-      <p class="empathy-close">ひとつでも頷いたなら、<br>このページはあなたのためにあります。</p>
-    </div>
-    <div class="empathy-image reveal"><img src="images/empathy.jpg" alt="鏡の前で頬に手をあてる女性" width="896" height="1200" loading="lazy"></div>
-  </div>
-</section>
-
-<!-- ===== 4コマ漫画（読了率を稼ぐ王道施策。削除しないこと） ===== -->
-<section class="manga">
-  <div class="container">
-    <div class="section-head reveal">
-      <div><p class="eyebrow">STORY IN 30 SEC</p><h2>30秒でわかる、<br>誕生のはなし。</h2></div>
-      <p>7年間の空振りから、自分の名前を冠した1袋が生まれるまで。読むのに30秒だけいただけますか。</p>
-    </div>
-    <div class="manga-grid reveal">
-      <figure><img src="images/manga1.jpg" alt="研究者として、期待を込めてコラーゲンを試す岡江美希" width="900" height="900" loading="lazy"><figcaption>27歳。「キレイのために」とコラーゲンを飲み始める。</figcaption></figure>
-      <figure><img src="images/manga2.jpg" alt="たくさんの空袋を前にため息をつく岡江美希" width="900" height="900" loading="lazy"><figcaption>7年間、いろいろ試した。……手応えはなかった。</figcaption></figure>
-      <figure><img src="images/manga3.jpg" alt="朝の鏡の前で驚く岡江美希" width="900" height="900" loading="lazy"><figcaption>34歳、「高分子」と出会う。試して3日目の朝、鏡の前で。</figcaption></figure>
-      <figure><img src="images/manga4.jpg" alt="ミキズコラーゲンを手に微笑む岡江美希" width="900" height="900" loading="lazy"><figcaption>「本当に手応えのあるものを届けたい」——自分の名前を冠して。</figcaption></figure>
+  <!-- ========== 固定ヘッダー ========== -->
+  <div class="ep-header" id="epHeader">
+    <div class="ep-header-inner">
+      <a class="ep-header-logo" href="#top">
+        <img src="{{ file_root_path }}/lp/mylp01/logo-white.png" alt="エポラーシェ" width="133" height="160">
+      </a>
+      <button class="ep-burger" id="burger" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="drawer">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
-</section>
 
-<section class="reasons">
-  <div class="container">
-    <div class="section-head reveal">
-      <div><p class="eyebrow">3 REASONS</p><h2>続けたくなる理由は、<br>シンプルです。</h2></div>
-      <p>難しい理屈より、毎日取り入れられるかどうか。ミキズコラーゲンは、量・カロリー・続けやすさの3つを大切にしました。</p>
-    </div>
-    <div class="reason-grid">
-      <article class="reason-card reveal"><p class="reason-num">01 / CONTENT</p><div class="reason-value">5,000<small>mg</small></div><h3>1杯に、しっかり。</h3><p>1日分6gに、高分子コラーゲンを5,000mg。食事で毎日摂るのは大変でも、一杯なら続けやすい量です。</p></article>
-      <article class="reason-card reveal"><p class="reason-num">02 / LIGHT</p><div class="reason-value">22.4<small>kcal</small></div><h3>罪悪感なく毎日に。</h3><p>脂質0g、1日分22.4kcal。美容習慣を増やしたい日も、カロリーを気にしすぎず続けられます。</p></article>
-      <article class="reason-card reveal"><p class="reason-num">03 / HABIT</p><div class="reason-value">約198<small>円</small></div><h3>無理なく続く価格。</h3><p>1袋180g・約30日分。カフェのコーヒー1杯より小さな金額で、毎日の土台を支えます。</p></article>
-    </div>
-  </div>
-</section>
-
-<section class="compare-section">
-  <div class="container">
-    <div class="section-head reveal">
-      <div><p class="eyebrow">WHY HIGH MOLECULAR</p><h2>世の中は低分子。<br>私たちは、逆を選びました。</h2></div>
-      <p>多くのコラーゲンが細かく加工される中で、ミキズコラーゲンは低分子化せず、食品に近い自然な形を大切にしています。</p>
-    </div>
-    <div class="compare-grid reveal">
-      <article class="compare-card">
-        <p class="compare-label">GENERAL COLLAGEN</p>
-        <h3>一般的な低分子コラーゲン</h3>
-        <div class="compare-flow"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-        <p>あらかじめ細かく加工したコラーゲン。吸収しやすさを重視して、分子を小さくした設計です。</p>
-      </article>
-      <article class="compare-card featured">
-        <p class="compare-label">MIKI'S COLLAGEN</p>
-        <h3>低分子化しない高分子</h3>
-        <div class="compare-flow"><span class="dot"></span><span class="link"></span><span class="dot"></span><span class="link"></span><span class="dot"></span><span class="link"></span><span class="dot"></span></div>
-        <p>自然の形に近い、つながったままのコラーゲン。体内の消化酵素が、食品と同じように分解・吸収していきます。</p>
-      </article>
-    </div>
-    <p class="compare-note reveal">岡江美希が7年間試し続けた末に選んだのは、"加工しすぎない"という考え方でした。</p>
-    <figure class="proof reveal">
-      <img src="images/proof-jelly.jpg" alt="お湯に溶かしたミキズコラーゲンを置いておくと固まった様子" width="1200" height="800" loading="lazy" onerror="this.parentNode.style.display='none'">
-      <figcaption>お湯に溶かしたあと、少し置いておくとゼリー状に。コラーゲンがそのままの形で入っている証です。</figcaption>
-    </figure>
-  </div>
-</section>
-
-<section class="story">
-  <div class="container story-grid">
-    <figure class="story-photo reveal"><img src="images/okae.jpg" alt="美容研究家 岡江美希" width="1000" height="1333" loading="lazy"><figcaption>美容研究家　岡江美希</figcaption></figure>
-    <div class="reveal">
-      <p class="eyebrow">STORY</p>
-      <h2 class="serif" style="font-size:clamp(30px,4vw,46px);line-height:1.6;font-weight:600">7年間の空振りが、<br>この1袋になりました。</h2>
-      <div class="timeline">
-        <div class="timeline-item"><div class="timeline-year">27歳</div><div><h3>美容のために、飲み始める。</h3><p>良いと聞けば試し、続け、また別のものを試す。コラーゲンを飲む日々が始まりました。</p></div></div>
-        <div class="timeline-item"><div class="timeline-year">7年間</div><div><h3>試しても、手応えがない。</h3><p>さまざまな商品を続けても、「これだ」と思えるものには出会えませんでした。</p></div></div>
-        <div class="timeline-item"><div class="timeline-year">34歳</div><div><h3>高分子コラーゲンに出会う。</h3><p>低分子化しないコラーゲンを扱うメーカーとの出会いが、考え方を大きく変えました。</p></div></div>
-        <div class="timeline-item"><div class="timeline-year">3日目</div><div><h3>朝、鏡の前で「あれ？」</h3><p>7年間空振りだったからこそ、その感覚は忘れられないものになりました。</p></div></div>
-      </div>
-      <blockquote class="story-quote">「本当に手応えのあるコラーゲンを、ひとりでも多くの人に届けたい」</blockquote>
-    </div>
-  </div>
-</section>
-
-<section class="howto">
-  <div class="container">
-    <div class="section-head reveal">
-      <div><p class="eyebrow">HOW TO ENJOY</p><h2>毎日のことだから、<br>おいしく、簡単に。</h2></div>
-      <p>1日分6gを、約150mLの温かい飲み物へ。朝の習慣に組み込むのが、岡江美希のおすすめです。</p>
-    </div>
-    <div class="howto-grid">
-      <article class="how-card reveal"><img src="images/step-basic.jpg" alt="お湯にコラーゲンを溶かす" width="1200" height="896" loading="lazy"><div class="how-body"><p class="how-kicker">BASIC</p><h3>お湯にひと溶かし</h3><p>シンプルにお湯へ。毎日の基本になる飲み方です。</p></div></article>
-      <article class="how-card reveal"><img src="images/step-milk.jpg" alt="温かいミルク" width="1200" height="896" loading="lazy"><div class="how-body"><p class="how-kicker">MILK</p><h3>温めたミルクに</h3><p>やさしい味わいで、朝や夜の一杯にも取り入れやすくなります。</p></div></article>
-      <article class="how-card reveal"><img src="images/step-chai.jpg" alt="チャイ" width="1200" height="896" loading="lazy"><div class="how-body"><p class="how-kicker">CHAI</p><h3>チャイに溶かして</h3><p>スパイスの香りとともに、コラーゲン習慣が楽しみに変わります。</p></div></article>
-    </div>
-    <p class="note" style="text-align:center;margin-top:20px">※水・冷水には溶けにくいため、温かい飲み物をお使いください。</p>
-  </div>
-</section>
-
-<section class="voices">
-  <div class="container">
-    <div class="section-head reveal">
-      <div><p class="eyebrow">VOICE</p><h2>続けている方の声。</h2></div>
-      <p>公式サイトに寄せられたレビューの中から、続けやすさや選んだ理由が伝わる声をご紹介します。</p>
-    </div>
-    <div class="voice-grid">
-      <article class="voice reveal">
-        <p class="voice-stars">★★★★★</p>
-        <h3>ずっとリピートします！</h3>
-        <p>ストックがもうすぐで無くなりそうだったので、また購入させていただきました。ずっとリピートします！</p>
-        <small>縁さん・30代・女性<br>（公式サイトレビューより）</small>
-      </article>
-      <article class="voice reveal">
-        <p class="voice-stars">★★★★★</p>
-        <h3>本物のコラーゲンが飲めて幸せ</h3>
-        <p>いつも凄いなーと感心するのが、お湯で溶かして飲んだ後、まだ少し残っていたのをまたお湯で溶かして少し放置していたら、少量でもプルプルのゼリーになってた事。毎日、本物のコラーゲンが飲めて幸せです。</p>
-        <small>さきぽよさん・30代・女性<br>（公式サイトレビューより・一部抜粋）</small>
-      </article>
-      <article class="voice reveal">
-        <p class="voice-stars">★★★★★</p>
-        <h3>ミキズコラーゲンから始めました</h3>
-        <p>最初にエポラーシェの商品を購入するきっかけがミキズコラーゲンでした。色々なコラーゲンを試していた中、高分子と聞いてまず1袋試してみて、今ではリピートしています。</p>
-        <small>ユカノブさん・40代・女性<br>（公式サイトレビューより・一部抜粋）</small>
-      </article>
-    </div>
-    <p class="note" style="text-align:center;margin-top:18px">※いずれも個人の感想です。掲載にあたり一部を抜粋しています（本文の書き換えは行っていません）。</p>
-    <div class="trust-strip reveal">
-      <div><strong>GMP認定工場</strong><span>日健栄協認定の国内工場で製造</span></div>
-      <div><strong>国内製造</strong><span>原産国日本</span></div>
-      <div><strong>レビュー4.7</strong><span>公式レビュー122件（2026年7月時点）</span></div>
-    </div>
-    <!-- 心が温まった直後の中間CTA -->
-    <div class="mid-cta reveal">
-      <a class="btn btn-primary" href="#trial">まずは3日分から試してみる</a>
-      <p class="microcopy">1,296円・送料無料。ポストに届くので受け取りの手間もありません。</p>
-    </div>
-  </div>
-</section>
-
-<section class="cost">
-  <div class="container-narrow reveal">
-    <p class="eyebrow">EVERY DAY</p>
-    <h2>1日あたり、<br>コーヒー1杯より小さく。</h2>
-    <p class="cost-value">約198<small>円／日</small></p>
-    <p>高いか、安いか。それは金額ではなく、10年後のあなたが決めること。ミキズコラーゲンは「続けられる価格」であることも、品質のうちだと考えています。</p>
-  </div>
-</section>
-
-<section class="fit">
-  <div class="container-narrow">
-    <div class="section-head reveal"><div><p class="eyebrow">HONESTLY</p><h2>正直に言うと、<br>向いていない方もいます。</h2></div></div>
-    <div class="fit-grid reveal">
-      <div class="fit-card"><h3>おすすめしない方</h3><ul><li>数日で劇的な変化を求める方</li><li>冷たい水で手軽に飲みたい方</li><li>錠剤やカプセルを好む方</li></ul></div>
-      <div class="fit-card good"><h3>ぜひ試してほしい方</h3><ul><li>今まで手応えを感じたことがない方</li><li>匂いが苦手で続かなかった方</li><li>毎日無理なく美容習慣を続けたい方</li></ul></div>
-    </div>
-    <p class="note" style="text-align:right;margin-top:16px">合わないものを売りたくないので、先にお伝えしました。</p>
-  </div>
-</section>
-
-<!-- ===== 栄養成分・全成分（食品として必須。絶対に削除しないこと） ===== -->
-<section class="spec">
-  <div class="container-narrow">
-    <div class="section-head reveal"><div><p class="eyebrow">NUTRITION</p><h2>成分について。</h2></div><p>口に入れるものだからこそ、すべて開示します。</p></div>
-    <table class="reveal">
-      <caption class="note" style="text-align:left;padding-bottom:10px">栄養成分表示（6gあたり）</caption>
-      <tr><th>エネルギー</th><td>22.4kcal</td></tr>
-      <tr><th>たんぱく質</th><td>5.5g</td></tr>
-      <tr><th>脂質</th><td>0g</td></tr>
-      <tr><th>炭水化物</th><td>0.1g</td></tr>
-      <tr><th>食塩相当量</th><td>0.046g</td></tr>
-      <tr><th>コラーゲン</th><td>5,000mg</td></tr>
-    </table>
-    <dl class="spec-detail reveal">
-      <div>
-        <dt>全成分</dt>
-        <dd>コラーゲン(ゼラチンを含む)(国内製造)、さとうきび抽出物、乾燥ローヤルゼリー、セラミド含有てん菜抽出物／ビタミンC、甘味料(ステビア)、香料</dd>
-      </div>
-      <div>
-        <dt>内容量・製造</dt>
-        <dd>180g（約30日分）／GMP認定工場（日健栄協）製造／原産国：日本</dd>
-      </div>
-    </dl>
-    <div class="spec-caution reveal">
-      <strong>お召し上がりの際のご注意</strong><br>
-      原材料をご参照の上、食品アレルギーのある方はお召し上がりにならないでください。<br>
-      粉末をそのまま口に入れると、むせることがありますのでご注意ください。<br>
-      本品は水・冷水には溶けません。<br>
-      食生活は、主食、主菜、副菜を基本に、食事のバランスを。
-    </div>
-  </div>
-</section>
-
-<section class="offer" id="trial">
-  <div class="container-narrow">
-    <p class="eyebrow" style="text-align:center">FIRST STEP</p>
-    <h2>まずは、あなたに合うか<br>確かめてください。</h2>
-    <p class="offer-lead">いきなり1袋は不安という方へ、3日分のトライアルをご用意しています。</p>
-    <div class="offer-grid">
-      <article class="offer-card trial">
-        <span class="ribbon">初めての方におすすめ</span>
-        <img class="offer-img" src="images/product-trial.jpg" alt="ミキズコラーゲン トライアルセット 3g×6包" width="800" height="600" loading="lazy" onerror="this.style.display='none'">
-        <p class="offer-plan">トライアルセット</p>
-        <p class="offer-price">1,296<small>円（税込）</small></p>
-        <p class="offer-sub">3g×6包・約3日分／送料無料</p>
-        <div class="offer-list"><span>味と続けやすさを試せる</span><span>計量不要の個包装</span><span>ネコポス・ポスト投函</span></div>
-        <a class="btn btn-primary" href="https://www.triplesun.co.jp/shop/products/ec_494">トライアルを試してみる</a>
-        <p class="micro">※ネコポス便（ポスト投函）のため、お届け日時の指定はできません。</p>
-      </article>
-      <article class="offer-card">
-        <img class="offer-img" src="images/product-main.jpg" alt="ミキズコラーゲン 180g" width="800" height="600" loading="lazy" onerror="this.style.display='none'">
-        <p class="offer-plan">通常商品</p>
-        <p class="offer-price">5,940<small>円（税込）</small></p>
-        <p class="offer-sub">180g・約30日分／1日あたり約198円</p>
-        <div class="offer-list"><span>高分子コラーゲン5,000mg</span><span>毎日の習慣にしっかり続けたい方へ</span><span>1袋で約1ヶ月分</span></div>
-        <a class="btn btn-primary" href="https://www.triplesun.co.jp/shop/products/ec_458_single">通常商品を購入する</a>
-      </article>
-    </div>
-
-    <!-- ===== 定期便：条件明記＋配慮の一文（必須。数字だけの訴求は不可） ===== -->
-    <div class="teiki" id="order">
-      <h3>続けるほど、お得に。</h3>
-      <p>気に入って続けたくなったら、定期便がおすすめです。買い忘れがなくなり、<strong>3品以上のまとめ定期なら最大20%OFF</strong>になります（3回以上の継続が条件です）。まずは1袋お試しいただいて、「これは続けたい」と思えたらで大丈夫。無理におすすめすることはありません。</p>
-      <a href="https://www.triplesun.co.jp/shop/pages/regular2" target="_blank" rel="noopener">定期便サービスのしくみを見る →</a>
-    </div>
-
-    <p class="offer-tel">
-      お電話でのご注文・ご相談（フリーコール）
+  <!-- ========== ドロワーメニュー ========== -->
+  <div class="ep-drawer-overlay" id="drawerOverlay"></div>
+  <nav class="ep-drawer" id="drawer" aria-label="メニュー" aria-hidden="true">
+    <button class="ep-drawer-close" id="drawerClose" type="button" aria-label="メニューを閉じる">×</button>
+    <ul class="ep-drawer-nav">
+      <li><a href="#reasons">選ばれる理由</a></li>
+      <li><a href="#compare">高分子とは</a></li>
+      <li><a href="#story">開発ストーリー</a></li>
+      <li><a href="#howto">飲み方</a></li>
+      <li><a href="#voices">お客様の声</a></li>
+      <li><a href="#spec">成分について</a></li>
+      <li><a href="#faq">よくある質問</a></li>
+      <li><a class="ep-drawer-cta" href="#form">ご注文はこちら</a></li>
+    </ul>
+    <p class="ep-drawer-tel">
+      お電話でのご注文<br>
       <a href="tel:0120561115">0120-56-1115</a>
-      平日 10:00〜14:00 ／ 15:00〜18:30（土日祝休み）
+      <span>平日 10:00〜14:00／15:00〜18:30</span>
+    </p>
+  </nav>
+
+  <!-- ========== ヒーロー ========== -->
+  <div class="ep-hero" id="top">
+    <div class="ep-hero-media">
+      <img src="{{ file_root_path }}/lp/mylp01/hero.jpg" alt="窓辺の自然光の中で、穏やかに微笑む大人の女性" width="1376" height="768" fetchpriority="high">
+    </div>
+    <div class="ep-container ep-hero-inner">
+      <p class="ep-hero-brand">EPORASHE ｜ エポラーシェ</p>
+      <h1 class="ep-hero-title"><span class="ep-l">何を飲んでも</span><br><span class="ep-l">わからなかった人へ。</span><br><span class="ep-l"><em>高分子という選択。</em></span></h1>
+      <p class="ep-hero-lead">美容研究家・岡江美希が7年間コラーゲンを試し続け、たどり着いた答え。低分子化しない高分子コラーゲンを、1日分5,000mg。</p>
+      <div class="ep-hero-badges">
+        <span class="ep-badge">高分子コラーゲン 5,000mg</span>
+        <span class="ep-badge">1日 22.4kcal</span>
+        <span class="ep-badge">約30日分</span>
+        <span class="ep-badge">国内製造</span>
+      </div>
+      <div class="ep-hero-actions">
+        <a class="ep-btn ep-btn-primary" href="#form">まずは3日分を試す（1,296円・送料無料）</a>
+        <a class="ep-hero-textlink" href="#order">通常商品（180g）はこちら →</a>
+      </div>
+      <p class="ep-hero-proof">★★★★★ 4.7／公式レビュー122件（2026年7月時点）</p>
+    </div>
+  </div>
+
+  <!-- ========== クイック値バー ========== -->
+  <div class="ep-quick">
+    <div class="ep-container ep-quick-grid">
+      <div class="ep-quick-item"><strong>5,000mg</strong><span>1日分の高分子コラーゲン</span></div>
+      <div class="ep-quick-item"><strong>22.4kcal</strong><span>毎日続けやすいカロリー</span></div>
+      <div class="ep-quick-item"><strong>約198円</strong><span>1日あたりの価格</span></div>
+      <div class="ep-quick-item"><strong>1,296円</strong><span>3日分トライアル・送料無料</span></div>
+    </div>
+  </div>
+
+  <!-- ========== 共感 ========== -->
+  <div class="ep-sec ep-empathy">
+    <div class="ep-container ep-empathy-grid">
+      <div class="ep-empathy-copy ep-reveal">
+        <p class="ep-eyebrow">FOR YOU</p>
+        <h2 class="ep-h2">そのコラーゲン、<br>手応えはありましたか。</h2>
+        <div class="ep-checklist">
+          <div class="ep-check">何を飲んでも、正直よくわからなかった</div>
+          <div class="ep-check">コラーゲン特有の匂いが苦手で続かなかった</div>
+          <div class="ep-check">カロリーが気になり、毎日は難しかった</div>
+          <div class="ep-check">「結局、意味があるの？」と思っている</div>
+        </div>
+        <p class="ep-empathy-close">ひとつでも頷いたなら、<br>このページはあなたのためにあります。</p>
+      </div>
+      <div class="ep-empathy-image ep-reveal">
+        <img src="{{ file_root_path }}/lp/mylp01/empathy.jpg" alt="鏡の前で頬に手をあてる女性" width="896" height="1200" loading="lazy">
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== 4コマ漫画 ========== -->
+  <div class="ep-sec ep-manga">
+    <div class="ep-container">
+      <div class="ep-sec-head ep-reveal">
+        <div><p class="ep-eyebrow">STORY IN 30 SEC</p><h2 class="ep-h2">30秒でわかる、<br>誕生のはなし。</h2></div>
+        <p>7年間の空振りから、自分の名前を冠した1袋が生まれるまで。読むのに30秒だけいただけますか。</p>
+      </div>
+      <div class="ep-manga-grid ep-reveal">
+        <figure class="ep-manga-item">
+          <img src="{{ file_root_path }}/lp/mylp01/manga1.jpg" alt="研究者として、期待を込めてコラーゲンを試す岡江美希" width="900" height="900" loading="lazy">
+          <figcaption>27歳。「キレイのために」とコラーゲンを飲み始める。</figcaption>
+        </figure>
+        <figure class="ep-manga-item">
+          <img src="{{ file_root_path }}/lp/mylp01/manga2.jpg" alt="たくさんの空袋を前にため息をつく岡江美希" width="900" height="900" loading="lazy">
+          <figcaption>7年間、いろいろ試した。……手応えはなかった。</figcaption>
+        </figure>
+        <figure class="ep-manga-item">
+          <img src="{{ file_root_path }}/lp/mylp01/manga3.jpg" alt="朝の鏡の前で驚く岡江美希" width="900" height="900" loading="lazy">
+          <figcaption>34歳、「高分子」と出会う。試して3日目の朝、鏡の前で。</figcaption>
+        </figure>
+        <figure class="ep-manga-item">
+          <img src="{{ file_root_path }}/lp/mylp01/manga4.jpg" alt="ミキズコラーゲンを手に微笑む岡江美希" width="900" height="900" loading="lazy">
+          <figcaption>「本当に手応えのあるものを届けたい」——自分の名前を冠して。</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== 選ばれる理由 ========== -->
+  <div class="ep-sec ep-reasons" id="reasons">
+    <div class="ep-container">
+      <div class="ep-sec-head ep-reveal">
+        <div><p class="ep-eyebrow">3 REASONS</p><h2 class="ep-h2">続けたくなる理由は、<br>シンプルです。</h2></div>
+        <p>難しい理屈より、毎日取り入れられるかどうか。ミキズコラーゲンは、量・カロリー・続けやすさの3つを大切にしました。</p>
+      </div>
+      <div class="ep-reason-grid">
+        <div class="ep-reason-card ep-reveal">
+          <p class="ep-reason-num">01 / CONTENT</p>
+          <p class="ep-reason-value">5,000<small>mg</small></p>
+          <h3 class="ep-h3">1杯に、しっかり。</h3>
+          <p>1日分6gに、高分子コラーゲンを5,000mg。食事で毎日摂るのは大変でも、一杯なら続けやすい量です。</p>
+        </div>
+        <div class="ep-reason-card ep-reveal">
+          <p class="ep-reason-num">02 / LIGHT</p>
+          <p class="ep-reason-value">22.4<small>kcal</small></p>
+          <h3 class="ep-h3">罪悪感なく毎日に。</h3>
+          <p>脂質0g、1日分22.4kcal。美容習慣を増やしたい日も、カロリーを気にしすぎず続けられます。</p>
+        </div>
+        <div class="ep-reason-card ep-reveal">
+          <p class="ep-reason-num">03 / HABIT</p>
+          <p class="ep-reason-value">約198<small>円</small></p>
+          <h3 class="ep-h3">無理なく続く価格。</h3>
+          <p>1袋180g・約30日分。カフェのコーヒー1杯より小さな金額で、毎日の土台を支えます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== 高分子とは ========== -->
+  <div class="ep-sec ep-compare" id="compare">
+    <div class="ep-container">
+      <div class="ep-sec-head ep-reveal">
+        <div><p class="ep-eyebrow">WHY HIGH MOLECULAR</p><h2 class="ep-h2">世の中は低分子。<br>私たちは、逆を選びました。</h2></div>
+        <p>多くのコラーゲンが細かく加工される中で、ミキズコラーゲンは低分子化せず、食品に近い自然な形を大切にしています。</p>
+      </div>
+      <div class="ep-compare-grid ep-reveal">
+        <div class="ep-compare-card">
+          <p class="ep-compare-label">GENERAL COLLAGEN</p>
+          <h3 class="ep-h3">一般的な低分子コラーゲン</h3>
+          <div class="ep-flow"><span class="ep-dot"></span><span class="ep-dot"></span><span class="ep-dot"></span><span class="ep-dot"></span><span class="ep-dot"></span><span class="ep-dot"></span></div>
+          <p>あらかじめ細かく加工したコラーゲン。吸収しやすさを重視して、分子を小さくした設計です。</p>
+        </div>
+        <div class="ep-compare-card ep-featured">
+          <p class="ep-compare-label">MIKI'S COLLAGEN</p>
+          <h3 class="ep-h3">低分子化しない高分子</h3>
+          <div class="ep-flow"><span class="ep-dot"></span><span class="ep-link"></span><span class="ep-dot"></span><span class="ep-link"></span><span class="ep-dot"></span><span class="ep-link"></span><span class="ep-dot"></span></div>
+          <p>自然の形に近い、つながったままのコラーゲン。体内の消化酵素が、食品と同じように分解・吸収していきます。</p>
+        </div>
+      </div>
+      <p class="ep-compare-note ep-reveal">岡江美希が7年間試し続けた末に選んだのは、"加工しすぎない"という考え方でした。</p>
+      <figure class="ep-proof ep-reveal">
+        <img src="{{ file_root_path }}/lp/mylp01/proof-jelly.jpg" alt="お湯に溶かしたミキズコラーゲンを置いておくと固まった様子" width="1200" height="800" loading="lazy" onerror="this.style.display='none'">
+        <figcaption>お湯に溶かしたあと、少し置いておくとゼリー状に。コラーゲンがそのままの形で入っている証です。</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- ========== 開発ストーリー ========== -->
+  <div class="ep-sec ep-story" id="story">
+    <div class="ep-container ep-story-grid">
+      <figure class="ep-story-photo ep-reveal">
+        <img src="{{ file_root_path }}/lp/mylp01/okae.jpg" alt="美容研究家 岡江美希" width="1000" height="1333" loading="lazy">
+        <figcaption>美容研究家　岡江美希</figcaption>
+      </figure>
+      <div class="ep-reveal">
+        <p class="ep-eyebrow">STORY</p>
+        <h2 class="ep-h2">7年間の空振りが、<br>この1袋になりました。</h2>
+        <div class="ep-timeline">
+          <div class="ep-timeline-item"><p class="ep-timeline-year">27歳</p><div><h3 class="ep-h3">美容のために、飲み始める。</h3><p>良いと聞けば試し、続け、また別のものを試す。コラーゲンを飲む日々が始まりました。</p></div></div>
+          <div class="ep-timeline-item"><p class="ep-timeline-year">7年間</p><div><h3 class="ep-h3">試しても、手応えがない。</h3><p>さまざまな商品を続けても、「これだ」と思えるものには出会えませんでした。</p></div></div>
+          <div class="ep-timeline-item"><p class="ep-timeline-year">34歳</p><div><h3 class="ep-h3">高分子コラーゲンに出会う。</h3><p>低分子化しないコラーゲンを扱うメーカーとの出会いが、考え方を大きく変えました。</p></div></div>
+          <div class="ep-timeline-item"><p class="ep-timeline-year">3日目</p><div><h3 class="ep-h3">朝、鏡の前で「あれ？」</h3><p>7年間空振りだったからこそ、その感覚は忘れられないものになりました。</p></div></div>
+        </div>
+        <blockquote class="ep-story-quote">「本当に手応えのあるコラーゲンを、ひとりでも多くの人に届けたい」</blockquote>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== 飲み方 ========== -->
+  <div class="ep-sec ep-howto" id="howto">
+    <div class="ep-container">
+      <div class="ep-sec-head ep-reveal">
+        <div><p class="ep-eyebrow">HOW TO ENJOY</p><h2 class="ep-h2">毎日のことだから、<br>おいしく、簡単に。</h2></div>
+        <p>1日分6gを、約150mLのお湯へ。朝の習慣に組み込むのが、岡江美希のおすすめです。</p>
+      </div>
+      <div class="ep-howto-grid">
+        <div class="ep-how-card ep-reveal">
+          <img src="{{ file_root_path }}/lp/mylp01/step-pour.jpg" alt="コップに入れたミキズコラーゲンにお湯を注ぐ" width="1200" height="900" loading="lazy">
+          <div class="ep-how-body"><p class="ep-kicker">STEP 1</p><h3 class="ep-h3">お湯を注ぐ</h3><p>コップに1日分6gを入れ、150mLほどのお湯を注ぎます。</p></div>
+        </div>
+        <div class="ep-how-card ep-reveal">
+          <img src="{{ file_root_path }}/lp/mylp01/step-stir.jpg" alt="スプーンでよく混ぜている様子" width="1200" height="900" loading="lazy">
+          <div class="ep-how-body"><p class="ep-kicker">STEP 2</p><h3 class="ep-h3">よく混ぜる</h3><p>スプーンでしっかり混ぜます。溶けやすくなり、ひと混ぜでなじみます。</p></div>
+        </div>
+        <div class="ep-how-card ep-reveal">
+          <img src="{{ file_root_path }}/lp/mylp01/step-done.jpg" alt="溶かしたミキズコラーゲン" width="1200" height="900" loading="lazy">
+          <div class="ep-how-body"><p class="ep-kicker">STEP 3</p><h3 class="ep-h3">できあがり</h3><p>すっきりとした見た目に。これだけで、毎日のコラーゲン習慣です。</p></div>
+        </div>
+      </div>
+      <p class="ep-note ep-center">※水・冷水には溶けにくいため、温かい飲み物をお使いください。</p>
+
+      <div class="ep-arrange ep-reveal">
+        <p class="ep-arrange-head">飽きたら、アレンジも。</p>
+        <div class="ep-arrange-grid">
+          <div class="ep-arrange-card">
+            <img src="{{ file_root_path }}/lp/mylp01/step-milk.jpg" alt="温かいミルク" width="1200" height="896" loading="lazy">
+            <div class="ep-arrange-body"><h3 class="ep-h3">温めたミルクに</h3><p>やさしい味わいで、朝や夜の一杯にも取り入れやすくなります。</p></div>
+          </div>
+          <div class="ep-arrange-card">
+            <img src="{{ file_root_path }}/lp/mylp01/step-chai.jpg" alt="チャイ" width="1200" height="896" loading="lazy">
+            <div class="ep-arrange-body"><h3 class="ep-h3">チャイに溶かして</h3><p>スパイスの香りとともに、コラーゲン習慣が楽しみに変わります。</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== お客様の声 ========== -->
+  <div class="ep-sec ep-voices" id="voices">
+    <div class="ep-container">
+      <div class="ep-sec-head ep-reveal">
+        <div><p class="ep-eyebrow">VOICE</p><h2 class="ep-h2">続けている方の声。</h2></div>
+        <p>公式サイトに寄せられたレビューの中から、続けやすさや選んだ理由が伝わる声をご紹介します。</p>
+      </div>
+      <div class="ep-voice-grid">
+        <div class="ep-voice ep-reveal">
+          <p class="ep-stars">★★★★★</p>
+          <h3 class="ep-h3">ずっとリピートします！</h3>
+          <p>ストックがもうすぐで無くなりそうだったので、また購入させていただきました。ずっとリピートします！</p>
+          <p class="ep-voice-meta">縁さん・30代・女性<br>（公式サイトレビューより）</p>
+        </div>
+        <div class="ep-voice ep-reveal">
+          <p class="ep-stars">★★★★★</p>
+          <h3 class="ep-h3">本物のコラーゲンが飲めて幸せ</h3>
+          <p>いつも凄いなーと感心するのが、お湯で溶かして飲んだ後、まだ少し残っていたのをまたお湯で溶かして少し放置していたら、少量でもプルプルのゼリーになってた事。毎日、本物のコラーゲンが飲めて幸せです。</p>
+          <p class="ep-voice-meta">さきぽよさん・30代・女性<br>（公式サイトレビューより・一部抜粋）</p>
+        </div>
+        <div class="ep-voice ep-reveal">
+          <p class="ep-stars">★★★★★</p>
+          <h3 class="ep-h3">ミキズコラーゲンから始めました</h3>
+          <p>最初にエポラーシェの商品を購入するきっかけがミキズコラーゲンでした。色々なコラーゲンを試していた中、高分子と聞いてまず1袋試してみて、今ではリピートしています。</p>
+          <p class="ep-voice-meta">ユカノブさん・40代・女性<br>（公式サイトレビューより・一部抜粋）</p>
+        </div>
+      </div>
+      <p class="ep-note ep-center">※いずれも個人の感想です。掲載にあたり一部を抜粋しています（本文の書き換えは行っていません）。</p>
+      <div class="ep-trust ep-reveal">
+        <div class="ep-trust-item"><strong>GMP認定工場</strong><span>日健栄協認定の国内工場で製造</span></div>
+        <div class="ep-trust-item"><strong>国内製造</strong><span>原産国日本</span></div>
+        <div class="ep-trust-item"><strong>レビュー4.7</strong><span>公式レビュー122件（2026年7月時点）</span></div>
+      </div>
+      <div class="ep-midcta ep-reveal">
+        <a class="ep-btn ep-btn-primary" href="#form">まずは3日分から試してみる</a>
+        <p class="ep-microcopy">1,296円・送料無料。ポストに届くので受け取りの手間もありません。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== コスパ ========== -->
+  <div class="ep-sec ep-cost">
+    <div class="ep-container-narrow ep-reveal">
+      <p class="ep-eyebrow">EVERY DAY</p>
+      <h2 class="ep-h2">1日あたり、<br>コーヒー1杯より小さく。</h2>
+      <p class="ep-cost-value">約198<small>円／日</small></p>
+      <p>高いか、安いか。それは金額ではなく、10年後のあなたが決めること。ミキズコラーゲンは「続けられる価格」であることも、品質のうちだと考えています。</p>
+    </div>
+  </div>
+
+  <!-- ========== 向き不向き ========== -->
+  <div class="ep-sec ep-fit">
+    <div class="ep-container-narrow">
+      <div class="ep-sec-head ep-reveal"><div><p class="ep-eyebrow">HONESTLY</p><h2 class="ep-h2">正直に言うと、<br>向いていない方もいます。</h2></div></div>
+      <div class="ep-fit-grid ep-reveal">
+        <div class="ep-fit-card">
+          <h3 class="ep-h3">おすすめしない方</h3>
+          <ul class="ep-fit-list">
+            <li>数日で劇的な変化を求める方</li>
+            <li>冷たい水で手軽に飲みたい方</li>
+            <li>錠剤やカプセルを好む方</li>
+          </ul>
+        </div>
+        <div class="ep-fit-card ep-good">
+          <h3 class="ep-h3">ぜひ試してほしい方</h3>
+          <ul class="ep-fit-list">
+            <li>今まで手応えを感じたことがない方</li>
+            <li>匂いが苦手で続かなかった方</li>
+            <li>毎日無理なく美容習慣を続けたい方</li>
+          </ul>
+        </div>
+      </div>
+      <p class="ep-note ep-right">合わないものを売りたくないので、先にお伝えしました。</p>
+    </div>
+  </div>
+
+  <!-- ========== 成分（法令上、削除不可） ========== -->
+  <div class="ep-sec ep-spec" id="spec">
+    <div class="ep-container-narrow">
+      <div class="ep-sec-head ep-reveal"><div><p class="ep-eyebrow">NUTRITION</p><h2 class="ep-h2">成分について。</h2></div><p>口に入れるものだからこそ、すべて開示します。</p></div>
+      <p class="ep-note ep-reveal">栄養成分表示（6gあたり）</p>
+      <table class="ep-table ep-reveal">
+        <tr><th>エネルギー</th><td>22.4kcal</td></tr>
+        <tr><th>たんぱく質</th><td>5.5g</td></tr>
+        <tr><th>脂質</th><td>0g</td></tr>
+        <tr><th>炭水化物</th><td>0.1g</td></tr>
+        <tr><th>食塩相当量</th><td>0.046g</td></tr>
+        <tr><th>コラーゲン</th><td>5,000mg</td></tr>
+      </table>
+      <dl class="ep-spec-detail ep-reveal">
+        <div>
+          <dt>全成分</dt>
+          <dd>コラーゲン(ゼラチンを含む)(国内製造)、さとうきび抽出物、乾燥ローヤルゼリー、セラミド含有てん菜抽出物／ビタミンC、甘味料(ステビア)、香料</dd>
+        </div>
+        <div>
+          <dt>内容量・製造</dt>
+          <dd>180g（約30日分）／GMP認定工場（日健栄協）製造／原産国：日本</dd>
+        </div>
+      </dl>
+      <div class="ep-caution ep-reveal">
+        <strong>お召し上がりの際のご注意</strong><br>
+        原材料をご参照の上、食品アレルギーのある方はお召し上がりにならないでください。<br>
+        粉末をそのまま口に入れると、むせることがありますのでご注意ください。<br>
+        本品は水・冷水には溶けません。<br>
+        食生活は、主食、主菜、副菜を基本に、食事のバランスを。
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== 商品ラインナップ ========== -->
+  <div class="ep-sec ep-offer" id="order">
+    <div class="ep-container-narrow">
+      <p class="ep-eyebrow ep-center">FIRST STEP</p>
+      <h2 class="ep-h2 ep-center">まずは、あなたに合うか<br>確かめてください。</h2>
+      <p class="ep-offer-lead">いきなり1袋は不安という方へ、3日分のトライアルをご用意しています。</p>
+      <div class="ep-offer-grid">
+        <div class="ep-offer-card ep-trial">
+          <span class="ep-ribbon">初めての方におすすめ</span>
+          <img class="ep-offer-img" src="{{ file_root_path }}/lp/mylp01/product-trial.jpg" alt="ミキズコラーゲン トライアルセット 3g×6包" width="800" height="600" loading="lazy" onerror="this.style.display='none'">
+          <p class="ep-offer-plan">トライアルセット</p>
+          <p class="ep-offer-price">1,296<small>円（税込）</small></p>
+          <p class="ep-offer-sub">3g×6包・約3日分／送料無料</p>
+          <ul class="ep-offer-list">
+            <li>味と続けやすさを試せる</li>
+            <li>計量不要の個包装</li>
+            <li>ネコポス・ポスト投函</li>
+          </ul>
+          <a class="ep-btn ep-btn-primary" href="#form">このセットを注文する</a>
+          <p class="ep-micro">※ネコポス便（ポスト投函）のため、お届け日時の指定はできません。</p>
+        </div>
+        <div class="ep-offer-card">
+          <img class="ep-offer-img" src="{{ file_root_path }}/lp/mylp01/product-main.jpg" alt="ミキズコラーゲン 180g" width="800" height="600" loading="lazy" onerror="this.style.display='none'">
+          <p class="ep-offer-plan">通常商品</p>
+          <p class="ep-offer-price">5,940<small>円（税込）</small></p>
+          <p class="ep-offer-sub">180g・約30日分／1日あたり約198円</p>
+          <ul class="ep-offer-list">
+            <li>高分子コラーゲン5,000mg</li>
+            <li>毎日の習慣にしっかり続けたい方へ</li>
+            <li>1袋で約1ヶ月分</li>
+          </ul>
+          <a class="ep-btn ep-btn-primary" href="#form">この商品を注文する</a>
+        </div>
+      </div>
+
+      <!-- 定期便：条件明記＋配慮の一文（削除不可） -->
+      <div class="ep-teiki">
+        <h3 class="ep-h3">続けるほど、お得に。</h3>
+        <p>気に入って続けたくなったら、定期便がおすすめです。買い忘れがなくなり、<strong>3品以上のまとめ定期なら最大20%OFF</strong>になります（3回以上の継続が条件です）。まずは1袋お試しいただいて、「これは続けたい」と思えたらで大丈夫。無理におすすめすることはありません。</p>
+        <a href="https://www.triplesun.co.jp/shop/pages/regular2" target="_blank" rel="noopener">定期便サービスのしくみを見る →</a>
+      </div>
+
+      <p class="ep-tel">
+        お電話でのご注文・ご相談（フリーコール）
+        <a href="tel:0120561115">0120-56-1115</a>
+        平日 10:00〜14:00 ／ 15:00〜18:30（土日祝休み）
+      </p>
+    </div>
+  </div>
+
+  <!-- 購入フォームへの導入見出し -->
+  <div class="ep-sec ep-formlead" id="form">
+    <div class="ep-container-narrow ep-center">
+      <p class="ep-eyebrow">ORDER</p>
+      <h2 class="ep-h2">ご注文フォーム</h2>
+      <p class="ep-formlead-text">下記フォームよりお申し込みいただけます。</p>
+    </div>
+  </div>
+
+</div><!-- /.ep-guide-page ここでいったん閉じる -->
+
+
+<!-- ============================================================
+     ▼▼▼【購入フォーム設置位置】▼▼▼
+
+     ecforce のテンプレートタイプ選択時に「ボディー編集」へ
+     自動入力されるフォーム部分の記述（__PAYMENT_FORM__ を含む）を
+     この位置にそのまま配置してください。
+
+     ★この位置は .ep-guide-page の外側です。
+       LP側のCSSはフォームに一切影響しません。
+     ★__PAYMENT_FORM__ は編集不可です。そのままお使いください。
+     ★CSS編集欄に自動入力されているフォーム用CSSも削除しないでください。
+
+     ▲▲▲【購入フォーム設置位置】▲▲▲
+============================================================ -->
+
+
+<div class="ep-guide-page"><!-- ここから後半 -->
+
+  <!-- ========== Q&A ========== -->
+  <div class="ep-sec ep-faq" id="faq">
+    <div class="ep-container-narrow">
+      <div class="ep-sec-head ep-reveal"><div><p class="ep-eyebrow">Q&amp;A</p><h2 class="ep-h2">よくいただくご質問。</h2></div></div>
+      <details class="ep-qa"><summary>コラーゲン特有の匂いが苦手です。</summary><div class="ep-qa-a">匂いが気になりにくい設計です。温めたミルクやチャイに混ぜると、さらに取り入れやすくなります。</div></details>
+      <details class="ep-qa"><summary>いつ飲むのがおすすめですか？</summary><div class="ep-qa-a">お好きなタイミングで問題ありません。岡江美希は朝の空腹時、または運動前をおすすめしています。</div></details>
+      <details class="ep-qa"><summary>水に溶かしてもいいですか？</summary><div class="ep-qa-a">水・冷水には溶けにくいため、150mL程度のお湯や温かい飲み物によく溶かしてください。</div></details>
+      <details class="ep-qa"><summary>低分子コラーゲンと何が違いますか？</summary><div class="ep-qa-a">ミキズコラーゲンは低分子化していない、自然の形に近い高分子コラーゲンです。体内の消化酵素によって、食品と同じように分解・吸収されます。</div></details>
+      <details class="ep-qa"><summary>1袋でどのくらい持ちますか？</summary><div class="ep-qa-a">1袋180g、1日6gで約30日分です。</div></details>
+      <details class="ep-qa"><summary>定期便はありますか？</summary><div class="ep-qa-a">はい。3品以上のまとめ定期なら最大20%OFFになります（3回以上の継続が条件です）。ただ、まずは単品で1袋お試しいただくのがおすすめです。「続けたい」と思えたときに、あらためてご検討ください。</div></details>
+    </div>
+  </div>
+
+  <!-- ========== 最終メッセージ ========== -->
+  <div class="ep-sec ep-final">
+    <img class="ep-final-bg" src="{{ file_root_path }}/lp/mylp01/final.jpg" alt="" width="1376" height="768" loading="lazy">
+    <div class="ep-container-narrow ep-reveal">
+      <p class="ep-final-msg">7年空振りだった人が、<br>いちばん本気で作りました。</p>
+      <a class="ep-btn ep-btn-primary" href="#form">まずは3日分を試す</a>
+    </div>
+  </div>
+
+  <!-- ========== 直営店案内（全LP共通） ========== -->
+  <div class="ep-sec ep-shop">
+    <div class="ep-container-narrow ep-center ep-reveal">
+      <p class="ep-eyebrow">SHOP</p>
+      <h2 class="ep-h2">直営店舗で、試飲できます。</h2>
+      <p class="ep-shop-text">味やとけ具合は、飲んでみるのがいちばん早い。直営店舗ではミキズコラーゲンの試飲を体験いただけます。スタッフがあなたに合う飲み方も一緒に考えます。</p>
+      <a class="ep-btn ep-btn-line" href="https://333esthe.com/course/shoplist/" target="_blank" rel="noopener">店舗のご案内を見る</a>
+    </div>
+  </div>
+
+</div><!-- /.ep-guide-page -->
+<!-- ============================================================
+  ミキズコラーゲンLP / フッター編集欄用
+============================================================ -->
+
+<div class="ep-guide-page">
+
+  <div class="ep-footer">
+    <img class="ep-footer-logo" src="{{ file_root_path }}/lp/mylp01/logo.png" alt="エポラーシェ" width="133" height="160">
+    <p class="ep-footer-text">
+      エポラーシェ（EPORASHE）／株式会社トリプルサン<br>
+      〒160-0023 東京都新宿区四谷本塩町15-12 カーサ四谷羽毛田ビル2F<br>
+      フリーコール <a href="tel:0120561115">0120-56-1115</a>（平日 10:00〜14:00／15:00〜18:30）
     </p>
   </div>
-</section>
 
-<section class="faq">
-  <div class="container-narrow">
-    <div class="section-head reveal"><div><p class="eyebrow">Q&amp;A</p><h2>よくいただくご質問。</h2></div></div>
-    <details><summary>コラーゲン特有の匂いが苦手です。</summary><p class="faq-answer">匂いが気になりにくい設計です。温めたミルクやチャイに混ぜると、さらに取り入れやすくなります。</p></details>
-    <details><summary>いつ飲むのがおすすめですか？</summary><p class="faq-answer">お好きなタイミングで問題ありません。岡江美希は朝の空腹時、または運動前をおすすめしています。</p></details>
-    <details><summary>水に溶かしてもいいですか？</summary><p class="faq-answer">水・冷水には溶けにくいため、150mL程度のお湯や温かい飲み物によく溶かしてください。</p></details>
-    <details><summary>低分子コラーゲンと何が違いますか？</summary><p class="faq-answer">ミキズコラーゲンは低分子化していない、自然の形に近い高分子コラーゲンです。体内の消化酵素によって、食品と同じように分解・吸収されます。</p></details>
-    <details><summary>1袋でどのくらい持ちますか？</summary><p class="faq-answer">1袋180g、1日6gで約30日分です。</p></details>
-    <details><summary>定期便はありますか？</summary><p class="faq-answer">はい。3品以上のまとめ定期なら最大20%OFFになります（3回以上の継続が条件です）。ただ、まずは単品で1袋お試しいただくのがおすすめです。「続けたい」と思えたときに、あらためてご検討ください。</p></details>
+  <!-- 追従CTA（スマホ） -->
+  <div class="ep-sticky" id="sticky">
+    <a href="#form">まずは3日分トライアル　1,296円・送料無料</a>
   </div>
-</section>
 
-<!-- ===== 最終メッセージ ===== -->
-<section class="final">
-  <img src="images/final.jpg" alt="夕方の窓辺、湯気の立つカップを両手で包む女性" width="1376" height="768" loading="lazy" onerror="this.style.display='none'">
-  <div class="container-narrow reveal">
-    <p class="final-msg">7年空振りだった人が、<br>いちばん本気で作りました。</p>
-    <a class="btn btn-primary" href="#trial">まずは3日分を試す</a>
-  </div>
-</section>
+  <!-- トップへ戻る -->
+  <button class="ep-totop" id="toTop" type="button" aria-label="ページ上部へ戻る">▲</button>
 
-<!-- ===== 直営店案内（全LP共通パーツ） ===== -->
-<section class="shop">
-  <div class="container-narrow reveal">
-    <p class="eyebrow">SHOP</p>
-    <h2 class="serif" style="font-size:clamp(30px,4vw,44px);margin-bottom:18px">直営店舗で、試飲できます。</h2>
-    <p>味やとけ具合は、飲んでみるのがいちばん早い。直営店舗ではミキズコラーゲンの試飲を体験いただけます。スタッフがあなたに合う飲み方も一緒に考えます。</p>
-    <a class="btn btn-secondary" href="https://333esthe.com/course/shoplist/">店舗のご案内を見る</a>
-  </div>
-</section>
+</div><!-- /.ep-guide-page -->
 
-<footer>
-  エポラーシェ（EPORASHE）／株式会社トリプルサン<br>
-  〒160-0023 東京都新宿区四谷本塩町15-12 カーサ四谷羽毛田ビル2F<br>
-  フリーコール <a href="tel:0120561115">0120-56-1115</a>（平日 10:00〜14:00／15:00〜18:30）
-</footer>
-
-<div class="sticky" id="sticky"><a href="#trial">まずは3日分トライアル　1,296円・送料無料</a></div>
-
-<!-- FAQ構造化データ（検索結果にQ&Aが表示される可能性を高める） -->
+<!-- 構造化データ -->
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@type":"FAQPage",
-  "mainEntity":[
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "エポラーシェ",
+  "alternateName": "株式会社トリプルサン",
+  "url": "PUBLIC_URL",
+  "logo": "{{ file_root_path }}/lp/mylp01/logo.png",
+  "telephone": "0120-56-1115",
+  "address": {
+    "@type": "PostalAddress",
+    "postalCode": "160-0023",
+    "addressRegion": "東京都",
+    "addressLocality": "新宿区",
+    "streetAddress": "四谷本塩町15-12 カーサ四谷羽毛田ビル2F",
+    "addressCountry": "JP"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "ミキズコラーゲン",
+  "image": "{{ file_root_path }}/lp/mylp01/product-main.jpg",
+  "description": "低分子化しない高分子コラーゲンを1日分5,000mg配合。1日6g・22.4kcal。内容量180g（約30日分）。",
+  "brand": { "@type": "Brand", "name": "エポラーシェ" },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "JPY",
+    "price": "5940",
+    "availability": "https://schema.org/InStock",
+    "url": "PUBLIC_URL"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
     {"@type":"Question","name":"コラーゲン特有の匂いが苦手です。","acceptedAnswer":{"@type":"Answer","text":"匂いが気になりにくい設計です。温めたミルクやチャイに混ぜると、さらに取り入れやすくなります。"}},
     {"@type":"Question","name":"いつ飲むのがおすすめですか？","acceptedAnswer":{"@type":"Answer","text":"お好きなタイミングで問題ありません。岡江美希は朝の空腹時、または運動前をおすすめしています。"}},
     {"@type":"Question","name":"水に溶かしてもいいですか？","acceptedAnswer":{"@type":"Answer","text":"水・冷水には溶けにくいため、150mL程度のお湯や温かい飲み物によく溶かしてください。"}},
@@ -637,23 +600,4 @@ footer a{color:inherit}
 }
 </script>
 
-<script>
-(function(){
-  const els=document.querySelectorAll('.reveal');
-  if(!('IntersectionObserver' in window)){els.forEach(el=>el.classList.add('on'));}
-  else{
-    const io=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('on');io.unobserve(entry.target);}}),{threshold:.1});
-    els.forEach(el=>io.observe(el));
-  }
-  const sticky=document.getElementById('sticky');
-  let state=false;
-  window.addEventListener('scroll',()=>{
-    const y=window.scrollY||window.pageYOffset;
-    const nearBottom=(window.innerHeight+y)>=document.body.scrollHeight-500;
-    const next=y>650&&!nearBottom;
-    if(next!==state){state=next;sticky.classList.toggle('show',next);}
-  },{passive:true});
-})();
-</script>
-</body>
-</html>
+<script src="{{ file_root_path }}/lp/mylp01/script.js" defer></script>
