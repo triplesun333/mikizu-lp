@@ -34,7 +34,450 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
 
 <!-- LP用スタイル -->
-<link rel="stylesheet" href="style.css">
+<style>
+@charset "UTF-8";
+/* ============================================================
+   ミキズコラーゲンLP / style.css
+   ------------------------------------------------------------
+   ・全セレクタを .ep-guide-page 配下に限定しています。
+     ecforce の共通ヘッダー・カート・商品ページ・マイページ・
+     購入フォームには一切影響しません。
+   ・html / body / section / img / a / button / * を
+     単独のグローバルセレクターとして使用していません。
+   ・CSS編集欄に自動入力されているフォーム用CSSは
+     削除せず、その「後ろに」本CSSを追記してください。
+   ============================================================ */
+
+/* ---------- 変数 ---------- */
+.ep-guide-page{
+  --ink:#2f251d;
+  --ink-soft:#665446;
+  --paper:#fffdf9;
+  --ivory:#f6f1e8;
+  --sand:#ece2d2;
+  --gold:#b8955e;
+  --gold-deep:#8f6f3d;
+  --rose:#d8c2b5;
+  --line:rgba(143,111,61,.22);
+  --shadow:0 22px 60px rgba(58,41,23,.10);
+}
+
+/* ---------- ベース ---------- */
+.ep-guide-page,
+.ep-guide-page *{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+.ep-guide-page{
+  font-family:'Zen Kaku Gothic New',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.9;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.ep-guide-page img{max-width:100%;height:auto;display:block}
+.ep-guide-page a{color:inherit}
+.ep-guide-page ul{list-style:none}
+.ep-guide-page a:focus-visible,
+.ep-guide-page button:focus-visible,
+.ep-guide-page summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+
+.ep-guide-page .ep-container{width:min(1120px,calc(100% - 40px));margin-left:auto;margin-right:auto}
+.ep-guide-page .ep-container-narrow{width:min(860px,calc(100% - 40px));margin-left:auto;margin-right:auto}
+.ep-guide-page .ep-sec{padding:104px 0}
+.ep-guide-page .ep-center{text-align:center}
+.ep-guide-page .ep-right{text-align:right}
+
+.ep-guide-page .ep-eyebrow{font-size:11px;letter-spacing:.36em;color:var(--gold-deep);font-weight:700;margin-bottom:16px}
+.ep-guide-page .ep-h2{font-family:'Shippori Mincho',serif;font-size:clamp(26px,3.6vw,44px);font-weight:600;line-height:1.6;letter-spacing:.05em}
+.ep-guide-page .ep-h3{font-family:'Shippori Mincho',serif;font-size:20px;font-weight:600;line-height:1.6;margin-bottom:10px}
+.ep-guide-page .ep-note{font-size:12.5px;color:#8b796b;line-height:1.9}
+.ep-guide-page .ep-microcopy{font-size:12.5px;color:#8b796b;margin-top:12px;text-align:center}
+
+.ep-guide-page .ep-sec-head{display:flex;justify-content:space-between;gap:40px;align-items:flex-end;margin-bottom:46px}
+.ep-guide-page .ep-sec-head p{max-width:34em;color:var(--ink-soft);font-size:15px}
+
+/* ---------- ボタン ---------- */
+.ep-guide-page .ep-btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:58px;padding:12px 30px;text-decoration:none;
+  font-family:'Shippori Mincho',serif;font-weight:600;letter-spacing:.06em;
+  border:1px solid transparent;transition:.25s ease;text-align:center;
+  line-height:1.5;
+}
+.ep-guide-page .ep-btn-primary{background:var(--ink);color:#fff;box-shadow:0 14px 30px rgba(47,37,29,.16)}
+.ep-guide-page .ep-btn-primary:hover{background:#1f1813}
+.ep-guide-page .ep-btn-line{border-color:var(--gold);color:var(--ink);background:rgba(255,255,255,.7)}
+.ep-guide-page .ep-btn-line:hover{background:var(--ivory)}
+
+/* ---------- キャンペーン差し込み枠 ---------- */
+.ep-guide-page .ep-campaign{background:var(--ink);color:#f3e5cd;text-align:center;padding:14px 0}
+.ep-guide-page .ep-campaign p{font-size:14px}
+.ep-guide-page .ep-campaign strong{color:#fff;font-family:'Shippori Mincho',serif;font-size:17px}
+
+/* ---------- 固定ヘッダー ---------- */
+.ep-guide-page .ep-header{
+  position:fixed;top:0;left:0;right:0;z-index:60;
+  background:rgba(43,33,25,.55);backdrop-filter:blur(8px);
+  transition:background .3s ease;
+}
+.ep-guide-page .ep-header.ep-solid{background:rgba(43,33,25,.96)}
+.ep-guide-page .ep-header-inner{
+  width:min(1120px,calc(100% - 32px));margin-left:auto;margin-right:auto;
+  height:66px;display:flex;align-items:center;justify-content:space-between;
+}
+.ep-guide-page .ep-header-logo{display:block;line-height:0}
+.ep-guide-page .ep-header-logo img{width:auto;height:38px;object-fit:contain}
+.ep-guide-page .ep-burger{
+  width:44px;height:44px;background:transparent;border:0;cursor:pointer;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;
+}
+.ep-guide-page .ep-burger span{display:block;width:24px;height:1.5px;background:#fff;transition:.3s ease}
+.ep-guide-page .ep-burger.ep-open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.ep-guide-page .ep-burger.ep-open span:nth-child(2){opacity:0}
+.ep-guide-page .ep-burger.ep-open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+/* ---------- ドロワー ---------- */
+.ep-guide-page .ep-drawer-overlay{
+  position:fixed;inset:0;z-index:70;background:rgba(26,19,14,.55);
+  opacity:0;visibility:hidden;transition:.3s ease;
+}
+.ep-guide-page .ep-drawer-overlay.ep-open{opacity:1;visibility:visible}
+.ep-guide-page .ep-drawer{
+  position:fixed;top:0;right:0;bottom:0;z-index:80;
+  width:min(320px,84%);background:#2b2119;color:#f1e7dc;
+  transform:translateX(100%);transition:transform .32s ease;
+  padding:76px 28px 32px;overflow-y:auto;
+}
+.ep-guide-page .ep-drawer.ep-open{transform:none}
+.ep-guide-page .ep-drawer-close{
+  position:absolute;top:16px;right:18px;width:44px;height:44px;
+  background:transparent;border:0;color:#f1e7dc;font-size:26px;cursor:pointer;line-height:1;
+}
+.ep-guide-page .ep-drawer-nav li{border-bottom:1px solid rgba(255,255,255,.14)}
+.ep-guide-page .ep-drawer-nav a{
+  display:block;padding:16px 4px;text-decoration:none;font-size:15px;letter-spacing:.06em;
+}
+.ep-guide-page .ep-drawer-nav a:hover{color:#ecd8b4}
+.ep-guide-page .ep-drawer-cta{
+  margin-top:18px;background:#ead8b9;color:var(--ink);text-align:center;
+  font-family:'Shippori Mincho',serif;font-weight:700;
+}
+.ep-guide-page .ep-drawer-nav li:last-child{border-bottom:0}
+.ep-guide-page .ep-drawer-tel{margin-top:26px;font-size:12.5px;color:#cbbba6;line-height:1.9}
+.ep-guide-page .ep-drawer-tel a{
+  display:block;font-family:'Shippori Mincho',serif;font-size:24px;color:#fff;
+  text-decoration:none;margin:4px 0;
+}
+.ep-guide-page .ep-drawer-tel span{display:block;font-size:11.5px}
+
+/* ---------- ヒーロー ---------- */
+.ep-guide-page .ep-hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden;background:#2b2119;color:#fff}
+.ep-guide-page .ep-hero-media{position:absolute;top:0;left:0;right:0;bottom:0}
+.ep-guide-page .ep-hero-media img{width:100%;height:100%;object-fit:cover}
+.ep-guide-page .ep-hero-media::after{
+  content:"";position:absolute;top:0;left:0;right:0;bottom:0;
+  background:linear-gradient(90deg,rgba(26,19,14,.86) 0%,rgba(26,19,14,.62) 42%,rgba(26,19,14,.20) 72%,rgba(26,19,14,.08) 100%);
+}
+.ep-guide-page .ep-hero-inner{position:relative;z-index:2;padding:150px 0 92px;width:min(1120px,calc(100% - 40px))}
+.ep-guide-page .ep-hero-brand{font-size:12px;letter-spacing:.38em;color:#ecdcc2;margin-bottom:26px}
+.ep-guide-page .ep-hero-title{font-family:'Shippori Mincho',serif;font-size:clamp(30px,5.2vw,68px);line-height:1.55;letter-spacing:.05em;font-weight:600}
+.ep-guide-page .ep-l{display:inline-block}
+.ep-guide-page .ep-hero-title em{font-style:normal;color:#f1ddbd}
+.ep-guide-page .ep-hero-lead{max-width:37em;margin:26px 0 28px;color:#f1e7dc;font-size:clamp(14px,1.4vw,18px)}
+.ep-guide-page .ep-hero-badges{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px}
+.ep-guide-page .ep-badge{border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.08);padding:9px 13px;font-size:12.5px}
+.ep-guide-page .ep-hero-actions{display:flex;flex-wrap:wrap;gap:20px;align-items:center}
+.ep-guide-page .ep-hero-textlink{color:#ecdcc2;font-size:14px;text-underline-offset:5px}
+.ep-guide-page .ep-hero-proof{margin-top:22px;color:#eadcc9;font-size:13px}
+
+/* ---------- クイック値バー ---------- */
+.ep-guide-page .ep-quick{margin-top:-44px;position:relative;z-index:4}
+.ep-guide-page .ep-quick-grid{display:grid;grid-template-columns:repeat(4,1fr);background:var(--paper);box-shadow:var(--shadow);border:1px solid var(--line)}
+.ep-guide-page .ep-quick-item{padding:26px 22px;border-right:1px solid var(--line)}
+.ep-guide-page .ep-quick-item:last-child{border-right:0}
+.ep-guide-page .ep-quick-item strong{display:block;font-family:'Shippori Mincho',serif;font-size:22px;margin-bottom:3px}
+.ep-guide-page .ep-quick-item span{font-size:12.5px;color:var(--ink-soft)}
+
+/* ---------- 共感 ---------- */
+.ep-guide-page .ep-empathy{background:linear-gradient(180deg,var(--paper),var(--ivory))}
+.ep-guide-page .ep-empathy-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center}
+.ep-guide-page .ep-empathy-image{position:relative}
+.ep-guide-page .ep-empathy-image img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.ep-guide-page .ep-checklist{display:grid;gap:10px;margin:26px 0 32px}
+.ep-guide-page .ep-check{padding:15px 0 15px 26px;border-bottom:1px solid var(--line);color:var(--ink-soft);position:relative;font-size:15px}
+.ep-guide-page .ep-check::before{content:"✓";position:absolute;left:0;top:15px;color:var(--gold-deep);font-weight:700}
+.ep-guide-page .ep-empathy-close{font-family:'Shippori Mincho',serif;font-size:19px;line-height:2}
+
+/* ---------- 4コマ漫画 ---------- */
+.ep-guide-page .ep-manga{background:var(--paper)}
+.ep-guide-page .ep-manga-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.ep-guide-page .ep-manga-item img{width:100%;aspect-ratio:1/1;object-fit:cover;background:var(--ivory);border:1px solid var(--line)}
+.ep-guide-page .ep-manga-item figcaption{font-size:13px;color:var(--ink-soft);line-height:1.85;margin-top:12px}
+
+/* ---------- 選ばれる理由 ---------- */
+.ep-guide-page .ep-reasons{background:var(--ivory)}
+.ep-guide-page .ep-reason-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.ep-guide-page .ep-reason-card{background:var(--paper);padding:34px 28px;border-top:2px solid var(--gold)}
+.ep-guide-page .ep-reason-num{font-family:'Shippori Mincho',serif;color:var(--gold-deep);font-size:13px;letter-spacing:.18em;margin-bottom:18px}
+.ep-guide-page .ep-reason-value{font-family:'Shippori Mincho',serif;font-size:40px;line-height:1.2;margin-bottom:12px}
+.ep-guide-page .ep-reason-value small{font-size:16px}
+.ep-guide-page .ep-reason-card p{font-size:14px;color:var(--ink-soft)}
+
+/* ---------- 高分子とは ---------- */
+.ep-guide-page .ep-compare{background:#30251d;color:#fff}
+.ep-guide-page .ep-compare .ep-eyebrow{color:#dfc49b}
+.ep-guide-page .ep-compare .ep-sec-head p{color:#e2d6ca}
+.ep-guide-page .ep-compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.ep-guide-page .ep-compare-card{padding:38px 32px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.035)}
+.ep-guide-page .ep-featured{background:rgba(184,149,94,.16);border-color:#b8955e}
+.ep-guide-page .ep-compare-label{font-size:11px;letter-spacing:.2em;color:#d8c9b9;margin-bottom:12px}
+.ep-guide-page .ep-compare-card p{color:#e5dbd1;font-size:14.5px}
+.ep-guide-page .ep-flow{display:flex;align-items:center;gap:7px;margin:22px 0 26px;min-height:42px;flex-wrap:wrap}
+.ep-guide-page .ep-dot{width:12px;height:12px;border-radius:50%;background:#bcae9f;display:block}
+.ep-guide-page .ep-link{width:18px;height:2px;background:#caa870;display:block}
+.ep-guide-page .ep-featured .ep-dot{width:15px;height:15px;background:#ead8b9}
+.ep-guide-page .ep-compare-note{margin-top:26px;padding:22px 24px;border-left:2px solid var(--gold);background:rgba(255,255,255,.04);color:#f3e9dd;font-family:'Shippori Mincho',serif;font-size:17px}
+.ep-guide-page .ep-proof{margin:34px auto 0;max-width:720px}
+.ep-guide-page .ep-proof img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.ep-guide-page .ep-proof figcaption{margin-top:14px;font-size:13.5px;color:#e2d6ca;text-align:center;line-height:1.9}
+
+/* ---------- 開発ストーリー ---------- */
+.ep-guide-page .ep-story{background:var(--ivory)}
+.ep-guide-page .ep-story-grid{display:grid;grid-template-columns:360px 1fr;gap:64px;align-items:start}
+.ep-guide-page .ep-story-photo img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.ep-guide-page .ep-story-photo figcaption{text-align:center;font-size:12px;letter-spacing:.16em;color:var(--gold-deep);margin-top:12px}
+.ep-guide-page .ep-timeline{display:grid;gap:22px;margin-top:26px}
+.ep-guide-page .ep-timeline-item{display:grid;grid-template-columns:84px 1fr;gap:18px;padding-bottom:22px;border-bottom:1px solid var(--line)}
+.ep-guide-page .ep-timeline-year{font-family:'Shippori Mincho',serif;color:var(--gold-deep);font-size:23px;line-height:1.4}
+.ep-guide-page .ep-timeline-item p{color:var(--ink-soft);font-size:14.5px}
+.ep-guide-page .ep-story-quote{margin-top:32px;padding:24px 28px;background:var(--paper);border-left:2px solid var(--gold);font-family:'Shippori Mincho',serif;font-size:20px;line-height:1.9}
+
+/* ---------- 飲み方 ---------- */
+.ep-guide-page .ep-howto{background:var(--paper)}
+.ep-guide-page .ep-howto-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.ep-guide-page .ep-how-card{background:var(--ivory);overflow:hidden}
+.ep-guide-page .ep-how-card img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.ep-guide-page .ep-how-body{padding:24px}
+.ep-guide-page .ep-kicker{font-size:11px;letter-spacing:.2em;color:var(--gold-deep);margin-bottom:8px}
+.ep-guide-page .ep-how-card p{font-size:14px;color:var(--ink-soft)}
+.ep-guide-page .ep-howto .ep-note{margin-top:20px}
+.ep-guide-page .ep-arrange{margin-top:56px;padding-top:44px;border-top:1px solid var(--line)}
+.ep-guide-page .ep-arrange-head{font-family:'Shippori Mincho',serif;font-size:19px;letter-spacing:.08em;text-align:center;margin-bottom:26px}
+.ep-guide-page .ep-arrange-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:760px;margin-left:auto;margin-right:auto}
+.ep-guide-page .ep-arrange-card{background:var(--ivory);overflow:hidden}
+.ep-guide-page .ep-arrange-card img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.ep-guide-page .ep-arrange-body{padding:20px 22px 24px}
+.ep-guide-page .ep-arrange-body p{font-size:14px;color:var(--ink-soft)}
+
+/* ---------- お客様の声 ---------- */
+.ep-guide-page .ep-voices{background:linear-gradient(180deg,var(--ivory),var(--paper))}
+.ep-guide-page .ep-voice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.ep-guide-page .ep-voice{background:var(--paper);border:1px solid var(--line);padding:30px 26px}
+.ep-guide-page .ep-stars{color:var(--gold-deep);letter-spacing:.12em;font-size:13px;margin-bottom:12px}
+.ep-guide-page .ep-voice p{font-size:14px;color:var(--ink-soft)}
+.ep-guide-page .ep-voice-meta{margin-top:18px;color:#8d7d71;font-size:12px;line-height:1.8}
+.ep-guide-page .ep-voices .ep-note{margin-top:18px}
+.ep-guide-page .ep-trust{display:grid;grid-template-columns:repeat(3,1fr);margin-top:42px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.ep-guide-page .ep-trust-item{text-align:center;padding:24px;border-right:1px solid var(--line)}
+.ep-guide-page .ep-trust-item:last-child{border-right:0}
+.ep-guide-page .ep-trust-item strong{font-family:'Shippori Mincho',serif;font-size:18px;display:block}
+.ep-guide-page .ep-trust-item span{font-size:12px;color:var(--ink-soft)}
+.ep-guide-page .ep-midcta{text-align:center;margin-top:46px}
+
+/* ---------- コスパ ---------- */
+.ep-guide-page .ep-cost{background:#30251d;color:#fff;text-align:center}
+.ep-guide-page .ep-cost .ep-eyebrow{color:#dfc49b}
+.ep-guide-page .ep-cost-value{font-family:'Shippori Mincho',serif;font-size:clamp(46px,7.4vw,82px);line-height:1.2;color:#ecd8b4;margin:16px 0 10px}
+.ep-guide-page .ep-cost-value small{font-size:21px}
+.ep-guide-page .ep-cost p{color:#e2d6ca;max-width:36em;margin-left:auto;margin-right:auto;font-size:15px}
+
+/* ---------- 向き不向き ---------- */
+.ep-guide-page .ep-fit{background:var(--paper)}
+.ep-guide-page .ep-fit-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.ep-guide-page .ep-fit-card{padding:30px 28px;background:var(--ivory);border-top:2px solid var(--rose)}
+.ep-guide-page .ep-good{border-top-color:var(--gold-deep)}
+.ep-guide-page .ep-fit-list li{padding:11px 0 11px 22px;border-bottom:1px solid var(--line);font-size:14px;color:var(--ink-soft);position:relative}
+.ep-guide-page .ep-fit-list li::before{content:"—";position:absolute;left:0;color:var(--gold-deep)}
+.ep-guide-page .ep-fit .ep-note{margin-top:16px}
+
+/* ---------- 成分 ---------- */
+.ep-guide-page .ep-spec{background:var(--ivory)}
+.ep-guide-page .ep-table{width:100%;border-collapse:collapse;background:var(--paper);font-size:14.5px;margin-top:8px}
+.ep-guide-page .ep-table th,
+.ep-guide-page .ep-table td{border:1px solid var(--line);padding:13px 18px;text-align:left}
+.ep-guide-page .ep-table th{width:44%;font-weight:500;background:var(--sand)}
+.ep-guide-page .ep-spec-detail{margin-top:24px;display:grid;gap:18px}
+.ep-guide-page .ep-spec-detail dt{font-family:'Shippori Mincho',serif;font-size:15px;color:var(--gold-deep);letter-spacing:.1em;margin-bottom:4px}
+.ep-guide-page .ep-spec-detail dd{font-size:13.5px;color:var(--ink-soft);line-height:2}
+.ep-guide-page .ep-caution{margin-top:22px;padding:22px 24px;background:var(--paper);border-left:2px solid var(--rose);font-size:13.5px;color:var(--ink-soft);line-height:2}
+
+/* ---------- 商品ラインナップ ---------- */
+.ep-guide-page .ep-offer{background:#2f251d;color:#fff}
+.ep-guide-page .ep-offer .ep-eyebrow{color:#dfc49b}
+.ep-guide-page .ep-offer-lead{text-align:center;color:#e2d6ca;margin:16px auto 44px;max-width:42em}
+.ep-guide-page .ep-offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+.ep-guide-page .ep-offer-card{background:#fff;color:var(--ink);padding:36px 30px;position:relative;display:flex;flex-direction:column}
+.ep-guide-page .ep-trial{border:2px solid var(--gold)}
+.ep-guide-page .ep-ribbon{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--gold-deep);color:#fff;padding:5px 18px;font-size:11px;letter-spacing:.14em;white-space:nowrap}
+.ep-guide-page .ep-offer-img{width:100%;height:190px;object-fit:contain;background:var(--ivory);margin-bottom:20px}
+.ep-guide-page .ep-offer-plan{font-family:'Shippori Mincho',serif;font-size:18px;text-align:center;margin-bottom:10px}
+.ep-guide-page .ep-offer-price{text-align:center;font-family:'Shippori Mincho',serif;font-size:44px;line-height:1.2}
+.ep-guide-page .ep-offer-price small{font-size:15px}
+.ep-guide-page .ep-offer-sub{text-align:center;font-size:13px;color:var(--ink-soft);margin:8px 0 22px}
+.ep-guide-page .ep-offer-list{display:grid;gap:8px;margin-bottom:26px;font-size:14px;color:var(--ink-soft)}
+.ep-guide-page .ep-offer-list li{padding-left:20px;position:relative}
+.ep-guide-page .ep-offer-list li::before{content:"✓";position:absolute;left:0;color:var(--gold-deep)}
+.ep-guide-page .ep-offer-card .ep-btn{width:100%;margin-top:auto}
+.ep-guide-page .ep-micro{font-size:12px;color:#8b796b;text-align:center;margin-top:12px;line-height:1.8}
+.ep-guide-page .ep-teiki{margin-top:26px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);padding:28px 30px}
+.ep-guide-page .ep-teiki p{font-size:14px;color:#e2d6ca;line-height:2}
+.ep-guide-page .ep-teiki strong{color:#f3e5cd}
+.ep-guide-page .ep-teiki a{display:inline-block;margin-top:14px;font-size:13.5px;color:#e6cfa6;text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:2px}
+.ep-guide-page .ep-tel{text-align:center;margin-top:32px;color:#d7c9bb;font-size:14px}
+.ep-guide-page .ep-tel a{font-family:'Shippori Mincho',serif;font-size:29px;color:#fff;text-decoration:none;display:block;margin:6px 0 2px;letter-spacing:.04em}
+
+/* ---------- フォーム導入見出し ---------- */
+.ep-guide-page .ep-formlead{background:var(--ivory);padding:72px 0 44px}
+.ep-guide-page .ep-formlead-text{margin-top:14px;color:var(--ink-soft);font-size:15px}
+
+/* ---------- Q&A ---------- */
+.ep-guide-page .ep-faq{background:var(--paper)}
+.ep-guide-page .ep-qa{border-bottom:1px solid var(--line)}
+.ep-guide-page .ep-qa:first-of-type{border-top:1px solid var(--line)}
+.ep-guide-page .ep-qa summary{list-style:none;cursor:pointer;padding:22px 44px 22px 38px;position:relative;font-family:'Shippori Mincho',serif;font-size:17px}
+.ep-guide-page .ep-qa summary::-webkit-details-marker{display:none}
+.ep-guide-page .ep-qa summary::before{content:"Q";position:absolute;left:0;top:22px;color:var(--gold-deep);font-weight:700}
+.ep-guide-page .ep-qa summary::after{content:"＋";position:absolute;right:4px;top:22px;color:var(--gold-deep)}
+.ep-guide-page .ep-qa[open] summary::after{content:"−"}
+.ep-guide-page .ep-qa-a{padding:0 42px 22px 38px;color:var(--ink-soft);font-size:14px;position:relative}
+.ep-guide-page .ep-qa-a::before{content:"A";position:absolute;left:0;top:0;color:var(--gold);font-family:'Shippori Mincho',serif;font-weight:700}
+
+/* ---------- 最終メッセージ ---------- */
+.ep-guide-page .ep-final{position:relative;background:#2b2119;color:#fff;text-align:center;overflow:hidden}
+.ep-guide-page .ep-final-bg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:.45}
+.ep-guide-page .ep-final .ep-container-narrow{position:relative;z-index:2}
+.ep-guide-page .ep-final-msg{font-family:'Shippori Mincho',serif;font-size:clamp(22px,3.6vw,40px);line-height:2;letter-spacing:.09em;margin-bottom:38px;text-shadow:0 2px 18px rgba(26,19,14,.7)}
+
+/* ---------- 直営店案内 ---------- */
+.ep-guide-page .ep-shop{background:var(--ivory)}
+.ep-guide-page .ep-shop-text{max-width:44em;margin:18px auto 28px;color:var(--ink-soft)}
+
+/* ---------- フッター ---------- */
+.ep-guide-page .ep-footer{padding:40px 20px 100px;text-align:center;background:var(--paper);border-top:1px solid var(--line)}
+.ep-guide-page .ep-footer-logo{width:auto;height:56px;object-fit:contain;margin:0 auto 18px}
+.ep-guide-page .ep-footer-text{font-size:12px;color:#8c7c70;line-height:2.2}
+.ep-guide-page .ep-footer-text a{text-decoration:none}
+
+/* ---------- 追従CTA ---------- */
+.ep-guide-page .ep-sticky{
+  position:fixed;left:0;right:0;bottom:0;z-index:50;
+  transform:translateY(120%);transition:transform .3s ease;
+  background:rgba(47,37,29,.96);
+  padding:10px 14px;
+  padding-bottom:calc(10px + env(safe-area-inset-bottom));
+  display:none;
+}
+.ep-guide-page .ep-sticky.ep-show{transform:none}
+.ep-guide-page .ep-sticky a{
+  display:block;text-align:center;text-decoration:none;background:#ead8b9;color:var(--ink);
+  padding:14px;font-family:'Shippori Mincho',serif;font-weight:700;font-size:15px;
+}
+
+/* ---------- トップへ戻る ---------- */
+.ep-guide-page .ep-totop{
+  position:fixed;right:16px;bottom:24px;z-index:55;
+  width:46px;height:46px;border-radius:50%;
+  background:rgba(47,37,29,.86);color:#ead8b9;border:1px solid var(--gold);
+  font-size:13px;cursor:pointer;line-height:1;
+  opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease;
+}
+.ep-guide-page .ep-totop.ep-show{opacity:1;visibility:visible}
+
+/* ---------- フェード表示（プログレッシブエンハンスメント） ----------
+   JSが動いた場合のみ .ep-js が付与され、初期状態が透明になります。
+   JSが読み込めない場合は常に表示されたままです。            */
+.ep-guide-page.ep-js .ep-reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.ep-guide-page.ep-js .ep-reveal.ep-on{opacity:1;transform:none}
+
+/* ============================================================
+   レスポンシブ
+   ============================================================ */
+@media screen and (max-width:1024px){
+  .ep-guide-page .ep-sec{padding:84px 0}
+  .ep-guide-page .ep-sec-head{display:block}
+  .ep-guide-page .ep-sec-head p{margin-top:16px}
+  .ep-guide-page .ep-empathy-grid{grid-template-columns:1fr;gap:44px}
+  .ep-guide-page .ep-story-grid{grid-template-columns:1fr;gap:40px}
+  .ep-guide-page .ep-story-photo{max-width:420px;margin-left:auto;margin-right:auto}
+  .ep-guide-page .ep-compare-grid{grid-template-columns:1fr}
+  .ep-guide-page .ep-fit-grid{grid-template-columns:1fr}
+}
+
+@media screen and (max-width:768px){
+  .ep-guide-page .ep-sec{padding:68px 0}
+  .ep-guide-page .ep-container,
+  .ep-guide-page .ep-container-narrow{width:calc(100% - 32px)}
+  .ep-guide-page .ep-hero{min-height:88vh}
+  .ep-guide-page .ep-hero-inner{padding:128px 0 72px;width:calc(100% - 32px)}
+  .ep-guide-page .ep-hero-title{font-size:clamp(24px,6.6vw,34px);line-height:1.65}
+  .ep-guide-page .ep-hero-actions{display:block}
+  .ep-guide-page .ep-hero-actions .ep-btn{width:100%}
+  .ep-guide-page .ep-hero-textlink{display:inline-block;margin-top:16px}
+  .ep-guide-page .ep-quick{margin-top:-20px}
+  .ep-guide-page .ep-quick-grid{grid-template-columns:1fr 1fr}
+  .ep-guide-page .ep-quick-item{padding:18px 14px}
+  .ep-guide-page .ep-quick-item strong{font-size:18px}
+  .ep-guide-page .ep-quick-item:nth-child(2){border-right:0}
+  .ep-guide-page .ep-quick-item:nth-child(1),
+  .ep-guide-page .ep-quick-item:nth-child(2){border-bottom:1px solid var(--line)}
+  .ep-guide-page .ep-quick-item:nth-child(4){border-right:0}
+  .ep-guide-page .ep-manga-grid{grid-template-columns:1fr 1fr;gap:14px}
+  .ep-guide-page .ep-reason-grid{grid-template-columns:1fr}
+  .ep-guide-page .ep-howto-grid{grid-template-columns:1fr}
+  .ep-guide-page .ep-arrange-grid{grid-template-columns:1fr}
+  .ep-guide-page .ep-voice-grid{grid-template-columns:1fr}
+  .ep-guide-page .ep-trust{grid-template-columns:1fr}
+  .ep-guide-page .ep-trust-item{border-right:0;border-bottom:1px solid var(--line)}
+  .ep-guide-page .ep-trust-item:last-child{border-bottom:0}
+  .ep-guide-page .ep-offer-grid{grid-template-columns:1fr}
+  .ep-guide-page .ep-offer-card{padding:34px 22px}
+  .ep-guide-page .ep-timeline-item{grid-template-columns:64px 1fr;gap:14px}
+  .ep-guide-page .ep-timeline-year{font-size:19px}
+  .ep-guide-page .ep-compare-card{padding:30px 22px}
+  .ep-guide-page .ep-table th,
+  .ep-guide-page .ep-table td{padding:11px 12px}
+  .ep-guide-page .ep-table th{width:42%}
+  .ep-guide-page .ep-sticky{display:block}
+  .ep-guide-page .ep-totop{bottom:86px;right:12px;width:42px;height:42px}
+  .ep-guide-page .ep-footer{padding-bottom:110px}
+}
+
+@media screen and (max-width:390px){
+  .ep-guide-page .ep-hero-title{font-size:23px}
+  .ep-guide-page .ep-offer-price{font-size:38px}
+  .ep-guide-page .ep-qa summary{padding:20px 36px 20px 30px;font-size:15.5px}
+  .ep-guide-page .ep-qa-a{padding-left:30px;padding-right:34px}
+  .ep-guide-page .ep-teiki{padding:24px 20px}
+  .ep-guide-page .ep-compare-note{padding:18px 18px;font-size:15.5px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .ep-guide-page.ep-js .ep-reveal{opacity:1;transform:none;transition:none}
+  .ep-guide-page .ep-drawer,
+  .ep-guide-page .ep-sticky,
+  .ep-guide-page .ep-totop{transition:none}
+}
+
+/* ---------- テスト表示用：購入フォームの位置を示すプレースホルダ ---------- */
+.ep-guide-page .ep-formph{background:var(--ivory);padding:0 0 72px;text-align:center}
+.ep-guide-page .ep-formph p{border:1px dashed var(--gold);padding:40px 24px;color:var(--ink-soft);font-size:15px;line-height:1.9}
+.ep-guide-page .ep-formph span{font-size:12.5px;color:#8b796b}
+
+</style>
 
 </head>
 <body>
@@ -603,7 +1046,220 @@
 }
 </script>
 
-<script src="script.js" defer></script>
+<script>
+/* ============================================================
+   ミキズコラーゲンLP / script.js
+   ------------------------------------------------------------
+   ・外部ライブラリ不使用（素のJavaScript）
+   ・DOMContentLoaded 後に初期化
+   ・全DOM要素で存在確認を行ってから処理
+   ・1つの機能でエラーが出ても他の処理は止まらない構造
+   ・購入フォームのDOMには一切触れていません
+   ============================================================ */
+
+(function () {
+  'use strict';
+
+  function ready(fn) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', fn);
+    } else {
+      fn();
+    }
+  }
+
+  /* ---------- 1. フェード表示（プログレッシブエンハンスメント） ---------- */
+  function initReveal() {
+    var pages = document.querySelectorAll('.ep-guide-page');
+    if (!pages || pages.length === 0) { return; }
+
+    // JSが動いたときだけ .ep-js を付与 → CSS側で初期状態を透明にする
+    for (var i = 0; i < pages.length; i++) {
+      pages[i].classList.add('ep-js');
+    }
+
+    var items = document.querySelectorAll('.ep-reveal');
+    if (!items || items.length === 0) { return; }
+
+    if (!('IntersectionObserver' in window)) {
+      for (var j = 0; j < items.length; j++) {
+        items[j].classList.add('ep-on');
+      }
+      return;
+    }
+
+    var io = new IntersectionObserver(function (entries) {
+      for (var k = 0; k < entries.length; k++) {
+        if (entries[k].isIntersecting) {
+          entries[k].target.classList.add('ep-on');
+          io.unobserve(entries[k].target);
+        }
+      }
+    }, { threshold: 0.1 });
+
+    for (var m = 0; m < items.length; m++) {
+      io.observe(items[m]);
+    }
+  }
+
+  /* ---------- 2. ハンバーガーメニュー／ドロワー ---------- */
+  function initDrawer() {
+    var burger = document.getElementById('burger');
+    var drawer = document.getElementById('drawer');
+    var overlay = document.getElementById('drawerOverlay');
+    var closeBtn = document.getElementById('drawerClose');
+
+    if (!burger || !drawer) { return; }
+
+    function openDrawer() {
+      drawer.classList.add('ep-open');
+      burger.classList.add('ep-open');
+      burger.setAttribute('aria-expanded', 'true');
+      drawer.setAttribute('aria-hidden', 'false');
+      if (overlay) { overlay.classList.add('ep-open'); }
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('ep-open');
+      burger.classList.remove('ep-open');
+      burger.setAttribute('aria-expanded', 'false');
+      drawer.setAttribute('aria-hidden', 'true');
+      if (overlay) { overlay.classList.remove('ep-open'); }
+    }
+
+    burger.addEventListener('click', function () {
+      if (drawer.classList.contains('ep-open')) {
+        closeDrawer();
+      } else {
+        openDrawer();
+      }
+    });
+
+    if (overlay) {
+      overlay.addEventListener('click', closeDrawer);
+    }
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeDrawer);
+    }
+
+    var navLinks = drawer.querySelectorAll('a');
+    for (var i = 0; i < navLinks.length; i++) {
+      navLinks[i].addEventListener('click', closeDrawer);
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' || e.keyCode === 27) {
+        if (drawer.classList.contains('ep-open')) { closeDrawer(); }
+      }
+    });
+  }
+
+  /* ---------- 3. スクロール連動（ヘッダー・追従CTA・トップへ戻る） ---------- */
+  function initScroll() {
+    var header = document.getElementById('epHeader');
+    var sticky = document.getElementById('sticky');
+    var toTop = document.getElementById('toTop');
+
+    if (!header && !sticky && !toTop) { return; }
+
+    var ticking = false;
+
+    function update() {
+      var y = window.pageYOffset || document.documentElement.scrollTop || 0;
+
+      if (header) {
+        if (y > 80) {
+          header.classList.add('ep-solid');
+        } else {
+          header.classList.remove('ep-solid');
+        }
+      }
+
+      if (sticky) {
+        var docH = document.body ? document.body.scrollHeight : 0;
+        var nearBottom = (window.innerHeight + y) >= (docH - 500);
+        if (y > 650 && !nearBottom) {
+          sticky.classList.add('ep-show');
+        } else {
+          sticky.classList.remove('ep-show');
+        }
+      }
+
+      if (toTop) {
+        if (y > 650) {
+          toTop.classList.add('ep-show');
+        } else {
+          toTop.classList.remove('ep-show');
+        }
+      }
+
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame ? window.requestAnimationFrame(update) : update();
+      }
+    }, { passive: true });
+
+    update();
+
+    if (toTop) {
+      toTop.addEventListener('click', function () {
+        if ('scrollBehavior' in document.documentElement.style) {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          window.scrollTo(0, 0);
+        }
+      });
+    }
+  }
+
+  /* ---------- 4. ページ内アンカーのスムーススクロール ---------- */
+  function initAnchor() {
+    var links = document.querySelectorAll('.ep-guide-page a[href^="#"]');
+    if (!links || links.length === 0) { return; }
+
+    for (var i = 0; i < links.length; i++) {
+      links[i].addEventListener('click', function (e) {
+        var href = this.getAttribute('href');
+        if (!href || href === '#') { return; }
+
+        var target = document.getElementById(href.slice(1));
+        if (!target) { return; }
+
+        e.preventDefault();
+        var header = document.getElementById('epHeader');
+        var offset = header ? header.offsetHeight : 0;
+        var rect = target.getBoundingClientRect();
+        var y = rect.top + (window.pageYOffset || 0) - offset;
+
+        if ('scrollBehavior' in document.documentElement.style) {
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        } else {
+          window.scrollTo(0, y);
+        }
+      });
+    }
+  }
+
+  /* ---------- 初期化（1つが失敗しても他は動かす） ---------- */
+  ready(function () {
+    var tasks = [initReveal, initDrawer, initScroll, initAnchor];
+    for (var i = 0; i < tasks.length; i++) {
+      try {
+        tasks[i]();
+      } catch (err) {
+        if (window.console && window.console.error) {
+          window.console.error('[ep-lp] init error:', err);
+        }
+      }
+    }
+  });
+})();
+
+</script>
 
 </body>
 </html>
